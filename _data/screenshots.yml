@@ -1,0 +1,18 @@
+- file: 800px-Qemu_linux.png
+  source: https://commons.wikimedia.org/wiki/File:Qemu_linux.png
+  author: "Screenshot by [User:Nurnware](https://commons.wikimedia.org/wiki/User:Nurnware)"
+  description: "QEMU running the ReactOS operating system on Linux."
+- file: qemu-arm.png
+  description: "QEMU running a 32-bit ARM binary on a 64-bit Linux system."
+- file: qemu-advent-calendar-osv-redis.png
+  source: http://www.qemu-advent-calendar.org/#day-11
+  author: "Courtesy of Dor Laor"
+  description: "The dashboard of the OSv operating system, running in the background as a QEMU/KVM process."
+- file: qemu-advent-calendar-s390-moon-buggy.png
+  source: http://www.qemu-advent-calendar.org/#day-22
+  author: "Courtesy of Alexander Graf"
+  description: "QEMU emulating an ASCII art game for the System z (s390) mainframe."
+- file: qemu-advent-calendar-second-reality.png
+  source: http://www.qemu-advent-calendar.org/#day-13
+  author: "Courtesy of Paolo Bonzini"
+  description: "QEMU running Second Reality, a well-known PC demo from 1993, inside the FreeDOS operating system."

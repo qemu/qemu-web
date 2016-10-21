@@ -1,0 +1,75 @@
+---
+title: Download QEMU
+permalink: /download/
+---
+
+<div class="horiz-menu">
+<ul style="display: none;">
+<li><a href="#linux">Linux</a></li>
+<li><a href="#macos">macOS</a></li>
+<li><a href="#windows">Windows</a></li>
+<li><a href="#source">Source code</a></li>
+</ul>
+
+<article id="linux" class="active">
+	<header>
+	<h2>Linux</h2>
+	</header>
+	{% markdown_relative _download/linux.md %}
+</article>
+
+<article id="macos" class="active">
+	<header>
+	<h2>macOS</h2>
+	</header>
+	{% markdown_relative _download/macos.md %}
+</article>
+
+<article id="windows" class="active">
+	<header>
+	<h2>Windows</h2>
+	</header>
+	{% markdown_relative _download/windows.md %}
+</article>
+
+<article id="source" class="active">
+	<header>
+	<h2>Source code</h2>
+	</header>
+	{% include_relative _download/source.html %}
+</article>
+</div>
+<script>
+function animateOnClick(jqThis, slide) {
+   $('.horiz-menu li').removeClass('active');
+   jqThis.parent().addClass('active');
+   if (slide) {
+     $('.horiz-menu article').slideUp();
+     $(jqThis.attr('href')).slideDown();
+   } else {
+     $('.horiz-menu article').removeClass('active');
+     $(jqThis.attr('href')).addClass('active');
+   }
+}
+
+$('.horiz-menu > ul').show();
+$('.horiz-menu > article > header').hide();
+$('.horiz-menu a').click(function() {
+   jqThis = $(this);
+   if (!jqThis.parent().hasClass('active')) {
+     window.location.hash = jqThis.attr('href');
+     animateOnClick(jqThis, true);
+   }
+   return false;
+});
+
+(function() {
+  if (window.location.hash) {
+    hash = window.location.hash.replace('#', '');
+    elem = $('.horiz-menu article').filter(function() { return hash == this.id; });
+  } else {
+    elem = $('.horiz-menu article').first();
+  }
+  animateOnClick($('a[href="#'+elem.attr('id')+'"]', false));
+})();
+</script>

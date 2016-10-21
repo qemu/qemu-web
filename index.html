@@ -1,0 +1,87 @@
+---
+title: QEMU
+layout: homepage
+colorbox: True
+---
+	<!-- Header -->
+	<div id="header">
+		<div class="container">
+			<h1>QEMU</h1>
+			<span class="tag">the FAST! processor emulator</span>
+		</div>
+	</div>
+	
+<!-- Featured -->
+<div id="featured">
+	<div class="container">
+		<header>
+			<h2>What is QEMU?</h2>
+			<p>QEMU is a generic and open source machine emulator and virtualizer.</p>
+		</header>
+		<div class="row">
+			<section class="4u">
+				<div class="pennant">{% include screenshot.html offset=0 limit=1 %}</div>
+				<h3>Full-system<br class="only-desktop"> emulation</h3>
+				<p>Run operating systems for any machine, on any supported architecture</p>
+			</section>
+			<section class="4u">
+				<div class="pennant">{% include screenshot.html offset=1 limit=1 %}</div>
+				<h3>User-mode<br class="only-desktop"> emulation</h3>
+				<p>Run programs for another Linux/BSD target, on any supported architecture</p>
+			</section>
+			<section class="4u">
+				<div class="pennant">{% include screenshot.html offset=2 limit=1 %}</div>
+				<h3>Virtualization</h3>
+				<p>Run KVM and Xen virtual machines with near native performance</p>
+			</section>
+			<section style="display: none;">
+			{% include screenshot.html offset=3 limit=10 %}
+
+<script>
+window.hasColorBox = false;
+$(window).on("load resize", function() {
+    isMobile = window.innerWidth < 700;
+    if (isMobile && window.hasColorBox) {
+        window.hasColorBox = false;
+        $.colorbox.remove();
+    } else if (!isMobile && !window.hasColorBox) {
+	window.hasColorBox = true;
+	$('.colorbox').colorbox({
+            'rel': '.colorbox',
+            'title': function() { return $(this).attr("data-title"); }
+        });
+    }
+});
+// make links to images inactive, except through the colorbox
+$('.colorbox').on("click.random-namespace", function() {
+    return window.hasColorBox;
+})
+</script>
+
+		</div>
+		<hr>
+		<p>QEMU is a member of <a href="http://wiki.qemu-project.org/Conservancy">Software Freedom Conservancy</a>.</p>
+	</div>
+</div>
+
+<!-- Main -->
+	<div id="releases">
+		<header>
+			<h2>Latest releases</h2>
+		</header>
+		<div class="container">
+			{% include releases.html %}
+		</div>
+	</div>
+
+
+<script>
+	$(window).on("scroll", function() {
+		isScroll = window.scrollY < 120;
+		jqBody = $('body');
+		if (isScroll && jqBody.hasClass('fixed'))
+			jqBody.removeClass('fixed')
+		else if (!isScroll && !jqBody.hasClass('fixed'))
+			jqBody.addClass('fixed')
+       });
+       </script>

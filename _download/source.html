@@ -1,0 +1,33 @@
+
+	<p>Grab the source code for the latest releases and compile it yourself:</p>
+	<div id="releases">
+	{% include releases.html %}
+	</div>
+	<p>or stay on the bleeding edge with the
+	   <a href="http://git.qemu-project.org/">git repository!</a></p>
+
+	<h2>Build instructions</h2>
+
+	{% for release in site.data.releases offset: 0 limit: 1 %}
+	<p>To download and build QEMU {{release.branch}}.{{release.patch}}:</p>
+<pre>wget http://qemu-project.org/download/qemu-{{release.branch}}.{{release.patch}}.tar.bz2
+tar xvJf qemu-{{release.branch}}.{{release.patch}}.tar.bz2
+cd qemu-{{release.branch}}.{{release.patch}}.tar.bz2
+./configure
+make
+</pre>
+	{% endfor %}
+
+	<p>To download and build QEMU from git:</p>
+<pre>git clone git://git.qemu-project.org/qemu.git
+cd qemu
+git submodule init
+git submodule update --recursive
+./configure
+make
+</pre>
+
+	<p>Detailed compilation instructions can be found in the wiki for
+		<a href="http://wiki.qemu-project.org/Hosts/Linux">Linux</a>,
+		<a href="http://wiki.qemu-project.org/Hosts/Windows">Win32</a> and
+		<a href="http://wiki.qemu-project.org/Hosts/Mac">macOS</a>.</p>

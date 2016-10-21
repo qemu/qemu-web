@@ -1,0 +1,30 @@
+	<!-- Nav -->
+	<nav id="nav">
+		<ul>
+			{% assign current = page.url | downcase | split: '/' %}
+			<li class='{% if page.url == '/' %}not-desktop {%endif %}home'><a href="/">Home</a>
+			</li><li {% if current[1] == 'download' %}class='current'{% endif %}><a href="/download">Download</a>
+			</li><li {% if current[1] == 'contribute' %}class='current'{% endif %}><a href="/contribute">Contribute</a>
+			</li><li {% if current[1] == 'documentation' %}class='current'{% endif %}><a href="/documentation">Documentation</a>
+			</li><li {% if current[1] == 'blog' %}class='current'{% endif %}><a href="/blog">Blog</a></li>
+		</ul>
+	</nav>
+
+<script>
+$('body').addClass('js');
+$('#nav').hide().before('<div id="titleBar"><div><span class="toggle"></span></div></div>');
+$('#titleBar .toggle').click(function() {
+	jqNav = $('#nav');
+	if (jqNav.is(':visible')) {
+		$('#nav, #titleBar>div').animate(
+			{ 'margin-left': '-=80%' },
+			{ 'duration': 400 });
+		jqNav.promise().done(function() { jqNav.hide().css('margin-left', 0); });
+	} else {
+		jqNav.css('margin-left', '-80%').show();
+		$('#nav, #titleBar>div').animate(
+			{ 'margin-left': '+=80%' },
+			{ 'duration': 400 });
+	}
+});
+</script>

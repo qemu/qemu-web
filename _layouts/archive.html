@@ -1,0 +1,19 @@
+---
+layout: blog
+---
+<!-- Main -->
+	<section>
+		<header>
+			<h1>{{ page.title }}</h1>
+		</header>
+		{% for post in page.posts %}
+		<article>
+			<header>
+				<h2><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h2>
+				<div class="posted">{{ post.date | date_to_string }}{% if page.author %} &mdash; by {{ page.author }}{% endif %}</div>
+			</header>
+		{{ post.excerpt }}
+		<a href="{{ site.prefix }}{{ post.url }}" class="button button-style1">Read More</a>
+		</article>
+		{% endfor %}
+	</section>

@@ -1,0 +1,16 @@
+---
+layout: blog
+---
+<!-- Main -->
+	<section>
+		<header>
+			<h1>{{ page.title }}</h1>
+			<div class="posted">{{ page.date | date_to_string }}{% if page.author %} &mdash; by {{ page.author }}{% endif %}</div>
+		</header>
+		{{ page.content }}
+		<ul class="category">
+		{% for category in page.categories %}
+		<li><span class="fa fa-folder"></span>{% categorylink category %}{{ category }}{% endcategorylink %}</li>
+		{% endfor %}
+		</ul>
+	</section>

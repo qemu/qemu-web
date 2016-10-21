@@ -1,0 +1,12 @@
+- branch: 2.7
+  patch: 0
+  date: "Sep 2 2016"
+- branch: 2.6
+  patch: 2
+  date: "Sep 29 2016"
+- branch: 2.5
+  patch: 1.1
+  date: "May 9 2016"
+- branch: 2.4
+  patch: 1
+  date: "Nov 3 2015"

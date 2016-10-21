@@ -1,0 +1,43 @@
+
+<!-- Sidebar -->
+<div id="sidebar">
+<div class="container">
+	<section>
+		<header>
+			<h1>Recent Posts</h1>
+		</header>
+		<ul class="style">
+		{% for post in site.posts offset: 0 limit: 2 %}
+			<li>
+				<p><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a><br/>
+				<span class="posted">{{ post.date | date_to_string }}</span></p>
+			</li>
+		{% endfor %}
+		</ul>
+	</section>
+
+
+	<section>
+		<header>
+			<h1>Archives</h1>
+		</header>
+		<ul class="style">
+		{% assign counter = 0 %}
+		{% assign thisurl = "" %}
+		{% assign thisdate = "" %}
+		{% for post in site.posts %}
+		{% assign prevurl = thisurl %}
+		{% assign prevdate = thisdate %}
+		{% assign thisurl = post.date | date: "%Y/%m" %}
+		{% assign thisdate = post.date | date: "%B %Y" %}
+		{% if thisurl != prevurl and prevurl != "" %}
+		<li><a href="/blog/{{ thisurl }}/">{{ thisdate }} ({{ counter }})</a></li>
+		{% assign counter = 0 %}
+		{% endif %}
+		{% assign counter = counter | plus: 1 %}
+		{% endfor %}
+		<li><a href="/blog/{{ thisurl }}/">{{ thisdate }} ({{ counter }})</a></li>
+		</ul>
+	</section>
+</div>
+</div>
