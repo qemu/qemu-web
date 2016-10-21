@@ -1,6 +1,7 @@
 RewriteEngine on
-RewriteRule "^Download$"       /download/                          [R=301]
-RewriteRule "^Contribute$"     /contribute/                        [R=301]
-RewriteRule "^Documentation$"  /documentation/                     [R=301]
-RewriteRule "^[A-Z].*"         http://wiki.qemu-project.org/$0     [R]
-RewriteRule "^download(/.+)"   http://download.qemu-project.org$1  [R]
+RewriteBase /
+RewriteRule ^Download$       /download/                          [R=301]
+RewriteRule ^Contribute$     /contribute/                        [R=301]
+RewriteRule ^Documentation$  /documentation/                     [R=301]
+RewriteRule ^[A-Z].*         http://wiki.qemu-project.org/$0     [R]
+RewriteRule ^download(/.+)   http://download.qemu-project.org$1  [R]
