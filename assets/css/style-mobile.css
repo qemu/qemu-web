@@ -325,15 +325,10 @@
 
 	#featured .pennant img
 	{
-		height: 30vh;
 		object-position: bottom;
 	}
-
-	@media (min-width:500px) {
-		#featured .pennant img
-		{
-			height: 40vh;
-		}
+	@media (orientation: landscape) {
+		height: 70vh;
 	}
 
 /*********************************************************************************/
