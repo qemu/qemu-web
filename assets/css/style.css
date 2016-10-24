@@ -578,7 +578,7 @@
 	{
 		width: 100%;
 		object-fit: contain;
-		
+		background-size: contain; //for IE polyfill
 	}
 
 	#featured .button
