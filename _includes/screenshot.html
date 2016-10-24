@@ -1,8 +1,9 @@
 {% for screenshot in site.data.screenshots offset: {{include.offset}} limit: {{include.limit}} %}
 <a href="screenshots/{{screenshot.file}}" class="colorbox"
    title="{{screenshot.description}}"
-   data-title="{{screenshot.description}} {%
-   if screenshot.author %}{{screenshot.author | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | escape}} {% endif %}{%
+   data-title="{% if screenshot.description_md %}{{screenshot.description_md | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | escape}}{%
+   else %}{{screenshot.description}}{%endif %}{%
+   if screenshot.author %} {{screenshot.author | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | escape}} {% endif %}{%
    if screenshot.source %} (&lt;a href=&quot;{{screenshot.source}}&quot;&gt;Source&lt;/a&gt;){%endif %}"><img
    src="screenshots/{{screenshot.file}}"/></a>
 {% endfor %}

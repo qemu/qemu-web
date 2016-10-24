@@ -2,12 +2,14 @@
   source: https://commons.wikimedia.org/wiki/File:Qemu_linux.png
   author: "Screenshot by [User:Nurnware](https://commons.wikimedia.org/wiki/User:Nurnware)"
   description: "QEMU running the ReactOS operating system on Linux."
+  description_md: "QEMU running the [ReactOS](http://www.reactos.org) operating system on Linux."
 - file: qemu-arm.png
   description: "QEMU running a 32-bit ARM binary on a 64-bit Linux system."
 - file: qemu-advent-calendar-osv-redis.png
   source: http://www.qemu-advent-calendar.org/#day-11
   author: "Courtesy of Dor Laor"
   description: "The dashboard of the OSv operating system, running in the background as a QEMU/KVM process."
+  description_md: "The dashboard of the [OSv](http://osv.io) operating system, running in the background as a QEMU/KVM process."
 - file: qemu-advent-calendar-s390-moon-buggy.png
   source: http://www.qemu-advent-calendar.org/#day-22
   author: "Courtesy of Alexander Graf"
