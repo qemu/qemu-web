@@ -326,7 +326,7 @@
 	#featured .pennant img
 	{
 		object-position: bottom;
-		background-position: bottom; // for IE polyfill
+		background-position: bottom; /* for IE polyfill */
 	}
 	@media (orientation: landscape) {
 		height: 70vh;
