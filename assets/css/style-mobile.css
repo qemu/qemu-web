@@ -329,7 +329,10 @@
 		background-position: bottom; /* for IE polyfill */
 	}
 	@media (orientation: landscape) {
-		height: 70vh;
+		#featured .pennant img
+		{
+			height: 70vh;
+		}
 	}
 
 /*********************************************************************************/
