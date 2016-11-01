@@ -12,15 +12,17 @@
 
 <script>
 $('body').addClass('js');
-$('#nav').hide().before('<div id="titleBar"><div><span class="toggle"></span></div></div>');
-$('#titleBar .toggle').click(function() {
+$('#nav').hide().before('<div id="titleBar"><div><button role="button" aria-pressed="false" aria-controls="nav" aria-label="Toggle navigation bar"><span class="fa fa-lg fa-bars"></span></button></div></div>');
+$('button[aria-controls="nav"]').click(function() {
 	jqNav = $('#nav');
-	if (jqNav.is(':visible')) {
+	if ($(this).attr('aria-pressed') == 'true') {
+		$(this).attr('aria-pressed', false);
 		$('#nav, #titleBar>div').animate(
 			{ 'margin-left': '-=80%' },
 			{ 'duration': 400 });
 		jqNav.promise().done(function() { jqNav.hide().css('margin-left', 0); });
 	} else {
+		$(this).attr('aria-pressed', true);
 		jqNav.css('margin-left', '-80%').show();
 		$('#nav, #titleBar>div').animate(
 			{ 'margin-left': '+=80%' },

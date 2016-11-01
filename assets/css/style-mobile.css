@@ -148,7 +148,7 @@
 			z-index: 1;
 		}
 		
-		#titleBar .toggle
+		button[aria-controls="nav"]
 		{
 			float: left;
 			position: relative;
@@ -158,24 +158,23 @@
 			height: 44px;
 			cursor: pointer;
 			z-index: 2;
+			background: transparent;
+			border: 0px;
+			color: #808080;
 		}
 
-			#titleBar .toggle:after
+			button[aria-controls="nav"] > span.fa
 			{
-				content: '';
-				display: block;
 				width: 20px;
 				height: 12px;
 				position: absolute;
-				left: 10px;
-				top: 15px;
-				background: url('images/toggle.svg') 0px 0px no-repeat;
-				opacity: 0.5;
+				left: 12px;
+				top: 10px;
 			}
 
-			#titleBar .toggle:active:after
+			button[aria-controls="nav"]:active
 			{
-				opacity: 0.75;
+				color: #c0c0c0;
 			}
 	#nav
 	{
