@@ -54,7 +54,7 @@ function animateOnClick(jqThis, slide) {
 
 $('.horiz-menu > ul').show();
 $('.horiz-menu > article > header').hide();
-$('.horiz-menu a').click(function() {
+$('.horiz-menu > ul a').click(function() {
    jqThis = $(this);
    if (!jqThis.parent().hasClass('active')) {
      window.location.hash = jqThis.attr('href');
