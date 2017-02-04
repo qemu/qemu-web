@@ -3,7 +3,7 @@ title: QEMU documentation
 permalink: /documentation/
 ---
 
-The [QEMU user manual](http://qemu.weilnetz.de/qemu-doc.html) can be read online, courtesy of Stefan Weil.
+The [QEMU user manual](https://qemu.weilnetz.de/qemu-doc.html) can be read online, courtesy of Stefan Weil.
 More documentation is found in the <a href="http://git.qemu-project.org/?p=qemu.git;a=tree;f=docs;hb=master">`docs`</a>
 directory of the QEMU git tree.
 
