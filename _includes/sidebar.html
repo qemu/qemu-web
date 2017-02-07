@@ -9,8 +9,8 @@
 		<ul class="style">
 		{% for post in site.posts offset: 0 limit: 2 %}
 			<li>
-				<p><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a><br/>
-				<span class="posted">{{ post.date | date_to_string }}</span></p>
+				<a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a><br/>
+				<span class="posted">{{ post.date | date_to_string }}</span>
 			</li>
 		{% endfor %}
 		</ul>
@@ -31,7 +31,7 @@
 		{% assign thisurl = post.date | date: "%Y/%m" %}
 		{% assign thisdate = post.date | date: "%B %Y" %}
 		{% if thisurl != prevurl and prevurl != "" %}
-		<li><a href="/blog/{{ thisurl }}/">{{ thisdate }} ({{ counter }})</a></li>
+		<li><a href="/blog/{{ prevurl }}/">{{ prevdate }} ({{ counter }})</a></li>
 		{% assign counter = 0 %}
 		{% endif %}
 		{% assign counter = counter | plus: 1 %}

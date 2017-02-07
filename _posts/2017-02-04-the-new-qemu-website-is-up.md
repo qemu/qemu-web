@@ -4,7 +4,6 @@ title:  "A new website for QEMU"
 date:   2017-02-04 09:40:11 +0200
 author: Paolo Bonzini
 categories: [contributing, 'web site']
-alias: /blog
 ---
 At last, QEMU's new website is up!
 

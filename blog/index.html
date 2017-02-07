@@ -1,0 +1,27 @@
+---
+title: Blog
+layout: blog
+---
+
+<!-- Main -->
+	{% for post in site.posts offset: 0 limit: 4 %}
+	<div class="row">
+		<section>
+			<header>
+				<h1><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h1>
+				<div class="posted">{{ post.date | date_to_string }}{% if post.author %} &mdash; by {{ post.author }}{% endif %}</div>
+			</header>
+			{% if forloop.first %}
+				{{ post.content }}
+				<ul class="category">
+				{% for category in post.categories %}
+				<li><span class="fa fa-folder"></span>{% categorylink category %}{{ category }}{% endcategorylink %}</li>
+				{% endfor %}
+				</ul>
+			{% else %}
+				{{ post.excerpt }}
+				<a href="{{ site.prefix }}{{ post.url }}" class="button button-style1">Read More</a>
+			{% endif %}
+		</section>
+	</div>
+	{% endfor %}
