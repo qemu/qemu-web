@@ -21,7 +21,7 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 permalink: :year/:month/:day/:title/
 monthly_archive: { path: 'blog', layout: 'archive' }
-category_archive: { path: 'blog/category', layout: 'archive' }
+category_archive: { path: 'blog/category', layout: 'archive', slugify: true }
 
 defaults: [
   {
