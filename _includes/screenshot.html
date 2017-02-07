@@ -5,5 +5,5 @@
    else %}{{screenshot.description}}{%endif %}{%
    if screenshot.author %} {{screenshot.author | markdownify | remove: '<p>' | remove: '</p>' | strip_newlines | escape}} {% endif %}{%
    if screenshot.source %} (&lt;a href=&quot;{{screenshot.source}}&quot;&gt;Source&lt;/a&gt;){%endif %}"><img
-   src="screenshots/{{screenshot.file}}"/></a>
+   src="screenshots/{{screenshot.file}}" alt="Screenshot: {{screenshot.description}}"/></a>
 {% endfor %}
