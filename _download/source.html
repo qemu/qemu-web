@@ -15,8 +15,8 @@
 
 	{% for release in site.data.releases offset: 0 limit: 1 %}
 	<p>To download and build QEMU {{release.branch}}.{{release.patch}}:</p>
-<pre>wget http://download.qemu-project.org/qemu-{{release.branch}}.{{release.patch}}.tar.bz2
-tar xvjf qemu-{{release.branch}}.{{release.patch}}.tar.bz2
+<pre>wget http://download.qemu-project.org/qemu-{{release.branch}}.{{release.patch}}.tar.xz
+tar xvJf qemu-{{release.branch}}.{{release.patch}}.tar.xz
 cd qemu-{{release.branch}}.{{release.patch}}
 ./configure
 make
