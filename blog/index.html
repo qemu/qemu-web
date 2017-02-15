@@ -9,7 +9,9 @@ layout: blog
 		<section>
 			<header>
 				<h1><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h1>
-				<div class="posted">{{ post.date | date_to_string }}{% if post.author %} &mdash; by {{ post.author }}{% endif %}</div>
+				<div class="posted">{{ post.date | date_to_string }}{%
+				if post.last_modified_at %} (Updated {{ post.last_modified_at | date_to_string }}) {%
+				endif %}{% if post.author %} &mdash; by {{ post.author }}{% endif %}</div>
 			</header>
 			{% if forloop.first %}
 				{{ post.content }}

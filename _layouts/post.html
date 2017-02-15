@@ -5,7 +5,9 @@ layout: blog
 	<section>
 		<header>
 			<h1>{{ page.title }}</h1>
-			<div class="posted">{{ page.date | date_to_string }}{% if page.author %} &mdash; by {{ page.author }}{% endif %}</div>
+			<div class="posted">{{ page.date | date_to_string }}{%
+				if page.last_modified_at %} (Updated {{ page.last_modified_at | date_to_string }}) {%
+				endif %}{% if page.author %} &mdash; by {{ page.author }}{% endif %}</div>
 		</header>
 		{{ page.content }}
 		<ul class="category">
