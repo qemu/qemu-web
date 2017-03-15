@@ -26,7 +26,7 @@ category_archive: { path: 'blog/category', layout: 'archive', slugify: true }
 defaults: [
   {
     scope: { path: "", type: "pages" },
-    values: { layout: 'default' }
+    values: { layout: 'page' }
   }
 ]
 
