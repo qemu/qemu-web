@@ -2,8 +2,8 @@
   patch: 0-rc2
   date: "Mar 28 2017"
 - branch: 2.8
-  patch: 0
-  date: "Dec 20 2016"
+  patch: 1
+  date: "Mar 31 2017"
 - branch: 2.7
   patch: 1
   date: "Dec 23 2016"
