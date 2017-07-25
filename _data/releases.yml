@@ -1,4 +1,4 @@
-- branch: 2.10
+- branch: "2.10"
   patch: 0-rc0
   date: "July 25 2017"
 - branch: 2.9
