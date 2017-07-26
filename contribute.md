@@ -3,7 +3,7 @@ title: Contribute to QEMU!
 permalink: /contribute/
 ---
 
-* Report a bug: https://bugs.launchpad.net/qemu/<br>[How to report a bug](http://wiki.qemu-project.org/Contribute/ReportABug)
+* Report a bug: https://bugs.launchpad.net/qemu/<br>[How to report a bug](report-a-bug/)
 
 * Clone the git repository: <br>`git clone git://git.qemu-project.org/qemu.git`
 
