@@ -3,7 +3,7 @@ layout: post
 title:  "Deprecation of old parameters and features"
 date:   2017-08-10 10:45:00 +0200
 author: Thomas Huth
-categories: [features, 'web site']
+categories: [features, deprecation, 'system emulation', 'qemu 2.10']
 ---
 QEMU has a lot of interfaces (like command line options or HMP commands) and
 old features (like certain devices) which are considered as deprecated
