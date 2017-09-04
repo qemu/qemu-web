@@ -32,4 +32,4 @@ More virtualization blog posts can be found on the [virt tools
 planet](http://planet.virt-tools.org/).
 
 In other news, QEMU is now in hard freeze for release 2.9.0.  The preliminary
-list of features is on the [wiki](http://wiki.qemu-project.org/ChangeLog/2.9).
+list of features is on the [wiki](http://wiki.qemu.org/ChangeLog/2.9).
