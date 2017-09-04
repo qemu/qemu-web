@@ -22,5 +22,5 @@ chapter of the QEMU documentation to see whether you are still using one of
 these old interfaces or features, so you can adapt your setup to use the new
 interfaces/features instead. Or if you rather think that one of the items
 should *not* be removed from QEMU at all, please speak up on the
-[qemu-devel mailing list](http://wiki.qemu.org/Contribute/MailingLists)
+[qemu-devel mailing list](https://wiki.qemu.org/Contribute/MailingLists)
 to explain why the interface or feature is still required.
