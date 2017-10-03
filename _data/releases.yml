@@ -1,6 +1,6 @@
 - branch: "2.10"
-  patch: 0
-  date: "Aug 30th 2017"
+  patch: 1
+  date: "Oct 2nd 2017"
 - branch: 2.9
   patch: 1
   date: "Sep 7 2017"
