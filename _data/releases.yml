@@ -1,6 +1,6 @@
 - branch: "2.11"
-  patch: 0-rc0
-  date: "Nov 7th 2017"
+  patch: 0-rc1
+  date: "Nov 14th 2017"
 - branch: "2.10"
   patch: 1
   date: "Oct 2nd 2017"
