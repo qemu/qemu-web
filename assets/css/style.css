@@ -200,6 +200,10 @@
 
 	/* Images */
 
+		img {
+			max-width: 100%;
+		}
+
 		.image
 		{
 			display: inline-block;
