@@ -25,5 +25,6 @@ end
 
 
 # for RHEL7
+gem 'public_suffix', "< 3.0"
 gem 'json'
 gem 'json_pure'
