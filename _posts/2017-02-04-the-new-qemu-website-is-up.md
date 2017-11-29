@@ -19,7 +19,9 @@ and the source code for the website can be cloned from the
 repository.  Just like for any other project hosted by QEMU, the best way
 to propose or contribute a new change is by sending a patch through the
 [qemu-devel@nongnu.org](https://lists.nongnu.org/mailman/listinfo/qemu-devel)
-mailing list.
+mailing list. Please add `[qemu-web PATCH]` to the subject so that CI will not
+confuse it with a qemu.git patch (if you run `git config format.subjectprefix
+'qemu-web PATCH'`, then `git-send-email` command will do it for you).
 
 For example, if you would like to add a new screenshot to the homepage,
 you can clone the `qemu-web.git` repository, add a PNG file to the
