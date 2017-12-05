@@ -26,5 +26,8 @@ end
 
 # for RHEL7
 gem 'public_suffix', "< 3.0"
+gem 'jekyll-watch', '= 1.5.0'
+gem 'listen', '< 3.1'
+gem 'ruby_dep', '< 1.4'
 gem 'json'
 gem 'json_pure'
