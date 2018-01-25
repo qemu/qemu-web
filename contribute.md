@@ -5,7 +5,7 @@ permalink: /contribute/
 
 * Report a bug: [https://bugs.launchpad.net/qemu/](https://bugs.launchpad.net/qemu/)<br>[How to report a bug](report-a-bug/)
 
-* Clone the git repository: <br>`git clone git://git.qemu.org/qemu.git`
+* Clone ([or browse](https://git.qemu.org/?p=qemu.git)) the git repository: <br>`git clone git://git.qemu.org/qemu.git`
 
 * Join the mailing list: [qemu-devel@nongnu.org](https://lists.nongnu.org/mailman/listinfo/qemu-devel)<br>[See the list of QEMU mailing lists](https://wiki.qemu.org/MailingLists)
 
