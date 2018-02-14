@@ -123,7 +123,7 @@ some form of the following patches:
 
     commit 3214d01f139b7544e870fc0b7fcce8da13c1cb51
     KVM: PPC: Book3S: Provide information about hardware/firmware CVE workarounds
-  
+    
     commit 191eccb1580939fb0d47deb405b82a85b0379070
     powerpc/pseries: Add H_GET_CPU_CHARACTERISTICS flags & wrapper
 
@@ -168,12 +168,6 @@ For s390x guests there are 2 CPU feature bits relating to Spectre/Meltdown:
 and both **bpb** and **ppa15** require a firmware with the appropriate support
 level as well as guest kernel patches to enable the functionality within
 guests. Please check with your distro/vendor to confirm.
-
-Both **bpb** and **ppa15** are enabled by default with newer/patched host
-kernels, and can also be set manually. For example:
-
-    qemu-system-s390x -M s390-ccw-virtio-2.11 ... \
-      -cpu zEC12,bpb=on,ppa15=on 
 
 Both **bpb** and **ppa15** are enabled by default when using "-cpu host"
 and when the host kernels supports these facilities. For other CPU
