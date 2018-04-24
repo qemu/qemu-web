@@ -38,6 +38,13 @@ but this may not be an exhaustive list.
 
 ## Enabling mitigation features for x86 KVM guests
 
+**Note: these mitigations are known to cause some [performance degradation][1] for
+certain workloads (whether used on host or guest), and for some Intel
+architectures alternative solutions like retpoline-based kernels may be
+available which [may provide similar levels of mitigation][2] with reduced
+performance impact. Please check with your distro/vendor to see what options
+are available to you.**
+
 For x86 guests there are 2 additional CPU flags associated with
 Spectre/Meltdown mitigation: **spec-ctrl**, and **ibpb**:
 
@@ -92,7 +99,7 @@ configuration to enable IBRS/IBPB, which may vary somewhat from one
 distro to another. For RHEL guests, the following resource may be
 useful:
 
-* https://access.redhat.com/articles/3311301
+* [https://access.redhat.com/articles/3311301](https://access.redhat.com/articles/3311301)
 
 With regard to migration compatibility, **spec-ctrl**/**ibrs** (or the
 corresponding CPU type) should be set the same on both source/target to
@@ -133,7 +140,7 @@ option will depend on the hardware/firmware level of the host system.
 In turn, to make use of "workaround" or "fixed" settings for each option,
 the guest kernel will require at least the following set of patches:
 
-* https://lists.ozlabs.org/pipermail/linuxppc-dev/2018-January/167455.html
+* [https://lists.ozlabs.org/pipermail/linuxppc-dev/2018-January/167455.html](https://lists.ozlabs.org/pipermail/linuxppc-dev/2018-January/167455.html)
 
 These are available upstream and have been backported to a number of stable
 kernels. Please check with your vendor/distro to confirm the required
@@ -182,3 +189,6 @@ default for '-cpu host' (when available on the host), you must ensure that
 **bpb**=off,**ppa15**=off is used if you wish to maintain migration
 compatibility with existing guests when using '-cpu host', or take steps to
 reboot guests with **bpb**/**ppa15** enabled prior to migration.
+
+[1] https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown/PublishedApplicationData
+[2] https://software.intel.com/sites/default/files/managed/1d/46/Retpoline-A-Branch-Target-Injection-Mitigation.pdf
