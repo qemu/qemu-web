@@ -38,10 +38,10 @@ but this may not be an exhaustive list.
 
 ## Enabling mitigation features for x86 KVM guests
 
-**Note: these mitigations are known to cause some [performance degradation](1) for
+**Note: these mitigations are known to cause some [performance degradation](https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown/PublishedApplicationData) for
 certain workloads (whether used on host or guest), and for some Intel
 architectures alternative solutions like retpoline-based kernels may be
-available which [may provide similar levels of mitigation](2) with reduced
+available which [may provide similar levels of mitigation](https://software.intel.com/sites/default/files/managed/1d/46/Retpoline-A-Branch-Target-Injection-Mitigation.pdf) with reduced
 performance impact. Please check with your distro/vendor to see what options
 are available to you.**
 
@@ -189,6 +189,3 @@ default for '-cpu host' (when available on the host), you must ensure that
 **bpb**=off,**ppa15**=off is used if you wish to maintain migration
 compatibility with existing guests when using '-cpu host', or take steps to
 reboot guests with **bpb**/**ppa15** enabled prior to migration.
-
-[1] https://wiki.ubuntu.com/SecurityTeam/KnowledgeBase/SpectreAndMeltdown/PublishedApplicationData
-[2] https://software.intel.com/sites/default/files/managed/1d/46/Retpoline-A-Branch-Target-Injection-Mitigation.pdf
