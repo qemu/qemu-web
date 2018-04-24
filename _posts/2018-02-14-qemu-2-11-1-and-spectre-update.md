@@ -38,10 +38,10 @@ but this may not be an exhaustive list.
 
 ## Enabling mitigation features for x86 KVM guests
 
-**Note: these mitigations are known to cause some [performance degradation][1] for
+**Note: these mitigations are known to cause some [performance degradation](1) for
 certain workloads (whether used on host or guest), and for some Intel
 architectures alternative solutions like retpoline-based kernels may be
-available which [may provide similar levels of mitigation][2] with reduced
+available which [may provide similar levels of mitigation](2) with reduced
 performance impact. Please check with your distro/vendor to see what options
 are available to you.**
 
