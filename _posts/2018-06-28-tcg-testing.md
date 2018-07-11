@@ -3,7 +3,7 @@ layout: post
 title:  "QEMU TCG Tests"
 date:   2018-06-21 10:30:00:00 +0000
 last_modified_at: 2018-06-21 10:30:00:00 +0000
-author: Alex BennÃ©e
+author: Alex Bennée
 categories: [testing, docker, compilation, tcg]
 ---
 
