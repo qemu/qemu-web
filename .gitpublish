@@ -1,0 +1,11 @@
+#
+# Common git-publish profiles that can be used to send patches to QEMU upstream.
+#
+# See https://github.com/stefanha/git-publish for more information
+#
+[gitpublishprofile "default"]
+base = master
+to = qemu-devel@nongnu.org
+prefix = qemu-web PATCH
+cc = Paolo Bonzini <pbonzini@redhat.com>
+cc = Thomas Huth <thuth@redhat.com>
