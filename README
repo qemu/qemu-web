@@ -1,0 +1,55 @@
+QEMU Website
+============
+
+This repository provides content for the QEMU website.
+
+It uses the Jekyll site generator for turning the static content into
+a format which can then be directly hosted by a regular HTTP server
+such as Apache.
+
+
+Testing locally with Jekyll
+---------------------------
+
+When adding/changing content on this site, it is possible to run a
+local Jekyll service to test the result.
+
+QEMU requires a specific version of Jekyll (listed in Gemfile) which may
+not match that provided by your OS vendor. Thus as a one time step the
+required Jekyll software should be installed locally:
+
+* Install OS vendor ruby with development headers
+
+   # sudo dnf install ruby ruby-devel   (Fedora)
+   # sudo yum install ruby ruby-devel   (RHEL)
+   # sudo apt-get install ruby ruby-dev (Debian / Ubuntu)
+
+* Install OS vendor ruby gem bundler
+
+   # sudo dnf install rubygem-bundler  (Fedora)
+   # sudo yum install rubygem-bundler  (RHEL)
+   # sudo apt-get install bundler      (Debian / Ubuntu)
+
+* Install Jekyll and its dependencies
+
+   # bundle install --path vendor
+
+  NB this last command must be run from the qemu-web.git checkout
+  root directory.
+
+Jekyll is now installed into the 'vendor/' directory of the git checkout.
+Note the 'vendor/' path has been explicitly excluded from the web content
+in '_config.yml', so don't try to use a different path within the git
+checkout.
+
+To test the site launch jeykll
+
+  # bundle exec jekyll serve
+
+Now simply point a local web browser to http://127.0.0.1:4000 to browse
+the generated site.
+
+Jekyll will usually automatically detect changes to files in the git
+checkout and regenerate the site. It is thus not normally necessary
+to restart jekyll after changing content, unless it shows signs of being
+confused / stale.
