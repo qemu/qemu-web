@@ -39,6 +39,30 @@ permalink: /download/
 	{% include_relative _download/source.html %}
 </article>
 </div>
+
+<h2>Version numbering</h2>
+<div>
+  <p>
+  Since version 3.0.0, QEMU uses a time based version numbering scheme:
+  </p>
+<dl>
+<dt>major</dt>
+<dd>incremented by 1 for the first release of the year</dd>
+<dt>minor</dt>
+<dd>reset to 0 with every major increment, otherwise incremented by 1 for each release from git master</dd>
+<dt>micro</dt>
+<dd>always 0 for releases from git master, incremented by 1 for each stable branch release</dd>
+</dl>
+  <p>
+    The implication of this is that changes in major version number
+    <strong>do not</strong> have any bearing on the scope of changes
+    included in the release. Non-backward compatible changes may be made
+    in any master branch release, provided they have followed the
+    <a href="https://qemu.weilnetz.de/doc/qemu-doc.html#Deprecated-features">deprecation policy</a>
+    which calls for warnings to be emitted for a minimum of two releases
+    prior to the change.
+  </p>
+</div>
 <script>
 function animateOnClick(jqThis, slide) {
    $('.horiz-menu li').removeClass('active');
