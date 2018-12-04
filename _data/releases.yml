@@ -1,6 +1,6 @@
 - branch: "3.1"
-  patch: 0-rc3
-  date: "Nov 28th 2018"
+  patch: 0-rc4
+  date: "Dec 4th 2018"
 - branch: "3.0"
   patch: 0
   date: "Aug 14th 2018"
