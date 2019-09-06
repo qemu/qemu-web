@@ -50,7 +50,7 @@ module Jekyll
 
     def render(context)
       # If the category is a variable in the current context, expand it
-      if context.has_key?(@category)
+      if context.key?(@category)
 	      category = context[@category]
       else
 	      category = @category
