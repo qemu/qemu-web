@@ -22,3 +22,6 @@ gem "minima", "~> 2.5"
 group :jekyll_plugins do
    gem "jekyll-feed", "~> 0.12"
 end
+
+# for https://github.com/sass/sassc-ruby/issues/146
+gem "sassc", "< 2.2.0"
