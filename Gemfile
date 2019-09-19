@@ -24,4 +24,4 @@ group :jekyll_plugins do
 end
 
 # for https://github.com/sass/sassc-ruby/issues/146
-gem "sassc", "< 2.2.0"
+gem "sassc", ">= 2.2.1"
