@@ -1,3 +1,6 @@
+- branch: "4.2"
+  patch: 0-rc0
+  date: "Nov 7th 2019"
 - branch: "4.1"
   patch: 0
   date: "Aug 15th 2019"
