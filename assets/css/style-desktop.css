@@ -33,12 +33,14 @@
 	{
 		/* 90% transparent */
 		background: url(../images/qemu_head_200.png) no-repeat fixed 2em 80px;
+		background-color: #FFF;
 	}
 
 	body.homepage
 	{
 		/* 90% transparent */
 		background: url(../images/qemu_head_400_faint.png) no-repeat fixed center 60%;
+		background-color: #FFF;
 	}
 
 	body,input,textarea,select
