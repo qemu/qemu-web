@@ -1,6 +1,6 @@
 - branch: "5.0"
-  patch: 0-rc4
-  date: "Apr 22nd 2020"
+  patch: 0
+  date: "Apr 28th 2020"
 - branch: "4.2"
   patch: 0
   date: "Dec 12th 2019"
