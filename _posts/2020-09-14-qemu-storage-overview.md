@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "An Overview of QEMU Storage Features"
-date:   2020-09-07 07:00:00 +0000
+date:   2020-09-14 07:00:00 +0000
 categories: [storage]
 ---
 This article introduces QEMU storage concepts including disk images, emulated
