@@ -1,0 +1,16 @@
+
+pages:
+  image: centos:8
+  cache:
+    paths:
+      - vendor
+  before_script:
+    - dnf install -y ruby ruby-devel rubygem-bundler openssl-devel
+    - dnf install -y gcc gcc-c++ make redhat-rpm-config
+    - bundle install --path vendor
+  script:
+    - bundle exec jekyll build
+    - mv _site public
+  artifacts:
+    paths:
+     - public
