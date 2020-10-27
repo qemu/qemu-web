@@ -8,7 +8,7 @@ layout: blog
 	<div class="row">
 		<section>
 			<header>
-				<h1><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h1>
+				<h1><a href="{{ relative_root }}{{ post.url }}">{{ post.title }}</a></h1>
 				<div class="posted">{{ post.date | date_to_string }}{%
 				if post.last_modified_at %} (Updated {{ post.last_modified_at | date_to_string }}) {%
 				endif %}{% if post.author %} &mdash; by {{ post.author }}{% endif %}</div>
@@ -22,7 +22,7 @@ layout: blog
 				</ul>
 			{% else %}
 				{{ post.excerpt }}
-				<a href="{{ site.prefix }}{{ post.url }}" class="button button-style1">Read More</a>
+				<a href="{{ relative_root }}{{ post.url }}" class="button button-style1">Read More</a>
 			{% endif %}
 		</section>
 	</div>

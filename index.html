@@ -3,6 +3,7 @@ title: QEMU
 layout: home
 colorbox: True
 ---
+{% include relative_root.html %}
 	<!-- Header -->
 	<div id="header">
 		<div class="container">
@@ -38,7 +39,7 @@ colorbox: True
 			{% include screenshot.html offset=3 limit=10 %}
 			</section>
 
-<script src="/assets/js/object-fit.js"></script>
+<script src="{{ relative_root }}/assets/js/object-fit.js"></script>
 <script>
 window.hasColorBox = false;
 $(window).on("load resize", function() {
@@ -62,7 +63,7 @@ $('.colorbox').on("click.random-namespace", function() {
 
 		</div>
 		<hr>
-		<p>QEMU is a member of <a href="/conservancy/">Software Freedom Conservancy</a>.</p>
+		<p>QEMU is a member of <a href="{{ relative_root }}/conservancy/">Software Freedom Conservancy</a>.</p>
 	</div>
 </div>
 

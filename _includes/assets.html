@@ -4,23 +4,23 @@
 	<meta name="viewport" content="width=device-width">
 	<link href='https://fonts.googleapis.com/css?family=Roboto+Mono:300,400%7cRoboto:300,400,500' rel='stylesheet' type='text/css'>
 
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/favicons/apple-touch-icon.png">
-	<link rel="icon" type="image/png" sizes="32x32" href="/assets/favicons/favicon-32x32.png">
-	<link rel="icon" type="image/png" sizes="16x16" href="/assets/favicons/favicon-16x16.png">
-	<link rel="manifest" href="/assets/favicons/manifest.json">
-	<link rel="mask-icon" href="/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
-	<meta name="msapplication-config" content="/assets/favicons/browserconfig.xml">
+	<link rel="apple-touch-icon" sizes="180x180" href="{{ relative_root }}/assets/favicons/apple-touch-icon.png">
+	<link rel="icon" type="image/png" sizes="32x32" href="{{ relative_root }}/assets/favicons/favicon-32x32.png">
+	<link rel="icon" type="image/png" sizes="16x16" href="{{ relative_root }}/assets/favicons/favicon-16x16.png">
+	<link rel="manifest" href="{{ relative_root }}/assets/favicons/manifest.json">
+	<link rel="mask-icon" href="{{ relative_root }}/assets/favicons/safari-pinned-tab.svg" color="#5bbad5">
+	<meta name="msapplication-config" content="{{ relative_root }}/assets/favicons/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
-	<link rel="stylesheet" href="/assets/css/normalize.css" />
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/normalize.css" />
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" />
-	<link rel="stylesheet" href="/assets/css/skel-noscript.css" />
-	<link rel="stylesheet" href="/assets/css/style.css" />
-	<link rel="stylesheet" href="/assets/css/style-mobile.css" media="(max-width:699px)"/>
-	<link rel="stylesheet" href="/assets/css/style-desktop.css" media="(min-width:700px)" />
-	<link rel="alternate" title="QEMU Blog (Atom feed)" href="/feed.xml" type="application/atom+xml" />
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/skel-noscript.css" />
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/style.css" />
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/style-mobile.css" media="(max-width:699px)"/>
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/style-desktop.css" media="(min-width:700px)" />
+	<link rel="alternate" title="QEMU Blog (Atom feed)" href="{{ relative_root }}/feed.xml" type="application/atom+xml" />
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 	{% if page.colorbox %}
-	<script src="/assets/js/jquery.colorbox.js"></script>
-	<link rel="stylesheet" href="/assets/css/colorbox.css" />
+	<script src="{{ relative_root }}/assets/js/jquery.colorbox.js"></script>
+	<link rel="stylesheet" href="{{ relative_root }}/assets/css/colorbox.css" />
 	{% endif %}

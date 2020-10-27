@@ -1,0 +1,12 @@
+{% assign relative_root = '' %}
+{% assign tempDepth = page.url | append: 'hackish-solution' | split: '/' | size | minus: 2 %}
+{% for i in (1..tempDepth) %}
+  {% if forloop.last %}
+    {% assign relative_root = relative_root | append: ".." %}
+  {% else %}
+    {% assign relative_root = relative_root | append: "../" %}
+  {% endif %}
+{% endfor %}
+{% if relative_root == '' %}
+    {% assign relative_root = '.' %}
+{% endif %}

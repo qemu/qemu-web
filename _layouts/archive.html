@@ -9,13 +9,13 @@ layout: blog
 		{% for post in page.posts %}
 		<article>
 			<header>
-				<h2><a href="{{ site.prefix }}{{ post.url }}">{{ post.title }}</a></h2>
+				<h2><a href="../../..{{ post.url }}">{{ post.title }}</a></h2>
 				<div class="posted">{{ post.date | date_to_string }}{%
 				if post.last_modified_at %} (Updated {{ post.last_modified_at | date_to_string }}) {%
 				endif %}{% if post.author %} &mdash; by {{ post.author }}{% endif %}</div>
 			</header>
 		{{ post.excerpt }}
-		<a href="{{ site.prefix }}{{ post.url }}" class="button button-style1">Read More</a>
+		<a href="../../..{{ post.url }}" class="button button-style1">Read More</a>
 		</article>
 		{% endfor %}
 	</section>
