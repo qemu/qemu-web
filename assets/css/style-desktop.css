@@ -237,13 +237,14 @@
 		{
 			text-align: right;
 			margin: 0;
+			padding: 0;
 		}
 
 		#nav > ul > li
 		{
 			display: inline-block;
 			margin: 0;
-			padding: 0.5em 2em 0.5em 0em;
+			padding: 0.5em 1em 0.5em 0em;
 			color: #FFF;
 			letter-spacing: 0.06em;
 			text-transform: uppercase;
