@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "QEMU Advent Calendar 2020 Announcement and Call for Images"
-date:   2020-11-22 18:00:00 -0500
+date:   2020-11-26 04:00:00 -0500
 categories: [contributing, community]
 ---
 QEMU Advent Calendar 2020 is around the corner and we are looking for                                                                                                                                                                                                     volunteers to contribute disk images that showcase something cool, bring
