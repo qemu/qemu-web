@@ -3,78 +3,119 @@ title: Security Process
 permalink: /contribute/security-process/
 ---
 
-QEMU takes security very seriously, and we aim to take immediate action to
-address serious security-related problems that involve our product.
+Please report any suspected security issue in QEMU to the security mailing
+list at:
 
-Please report any suspected security vulnerability in QEMU to the following
-addresses. You can use GPG keys for respective receipients to communicate with
-us securely. If you do, please upload your GPG public key or supply it to us
-in some other way, so that we can communicate to you in a secure way, too!
-Please include the tag **\[QEMU-SECURITY\]** on the subject line to help us
-identify your message as security-related. 
+* [\<qemu-security@nongnu.org\>](https://lists.nongnu.org/mailman/listinfo/qemu-security)
 
-## QEMU Security Contact List
+To report an issue via [GPG](https://gnupg.org/) encrypted email, please send
+it to the Red Hat Product Security team at:
 
-Please copy everyone on this list:
+* [\<secalert@redhat.com\>](https://access.redhat.com/security/team/contact/#contact)
 
- Contact Person(s)	| Contact Address		| Company	|  GPG Key  | GPG key fingerprint
-:-----------------------|:------------------------------|:--------------|:---------:|:--------------------
- Michael S. Tsirkin	| mst@redhat.com		| Red Hat Inc.	| [&#x1f511;](https://pgp.mit.edu/pks/lookup?op=vindex&search=0xC3503912AFBE8E67) | 0270 606B 6F3C DF3D 0B17 0970 C350 3912 AFBE 8E67
- Petr Matousek		| pmatouse@redhat.com		| Red Hat Inc.	| [&#x1f511;](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x3E786F42C44977CA) | 8107 AF16 A416 F9AF 18F3 D874 3E78 6F42 C449 77CA
- Stefano Stabellini	| sstabellini@kernel.org 	| Independent	| [&#x1f511;](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x894F8F4870E1AE90) | D04E 33AB A51F 67BA 07D3 0AEA 894F 8F48 70E1 AE90
- Security Response Team | secalert@redhat.com		| Red Hat Inc.	| [&#x1f511;](https://access.redhat.com/site/security/team/contact/#contact) |
- Michael Roth		| michael.roth@amd.com	| AMD		| [&#x1f511;](https://pgp.mit.edu/pks/lookup?op=vindex&search=0x3353C9CEF108B584) | CEAC C9E1 5534 EBAB B82D 3FA0 3353 C9CE F108 B584
- Prasad J Pandit 	| pjp@redhat.com		| Red Hat Inc.	| [&#x1f511;](http://pool.sks-keyservers.net/pks/lookup?op=vindex&search=0xE2858B5AF050DE8D) | 8685 545E B54C 486B C6EB 271E E285 8B5A F050 DE8D 
+**Note:** after the triage, encrypted issue details shall be sent to the upstream
+'qemu-security' mailing list for archival purposes.
 
-## How to Contact Us Securely
+## How to report an issue:
 
-We use GNU Privacy Guard (GnuPG or GPG) keys to secure communications. Mail
-sent to members of the list can be encrypted with public keys of all members
-of the list. We expect to change some of the keys we use from time to time.
-Should a key change, the previous one will be revoked.
+* Please include as many details as possible in the issue report.
+  Ex:
+    - QEMU version, upstream commit/tag
+    - Host & Guest architecture x86/Arm/PPC, 32/64 bit etc.
+    - Affected code area/snippets
+    - Stack traces, crash details
+    - Malicious inputs/reproducer steps etc.
+    - Any configurations/settings required to trigger the issue.
 
-## How we respond
+* Please share the QEMU command line used to invoke a guest VM.
 
-Maintainers listed on the security reporting list operate a policy of
-responsible disclosure. As such they agree that any information you share with
-them about security issues that are not public knowledge is kept confidential
-within respective affiliated companies. It is not passed on to any third-party,
-including Xen Security Project, without your permission.
+* Please specify whom to acknowledge for reporting this issue.
 
-Email sent to us is read and acknowledged with a non-automated response. For
-issues that are complicated and require significant attention, we will open an
-investigation and keep you informed of our progress. We might take one or more
-of the following steps:
+## How we respond:
+
+* Process of handling security issues comprises following steps:
+
+  0) **Acknowledge:**
+    - A non-automated response email is sent to the reporter(s) to acknowledge
+      the reception of the report. (*60 day's counter starts here*)
+
+  1) **Triage:**
+    - Examine the issue details and confirm whether the issue is genuine
+    - Validate if it can be misused for malicious purposes
+    - Determine its worst case impact and severity
+      [Low/Moderate/Important/Critical]
+
+  2) **Response:**
+    - Negotiate embargo timeline (if required, depending on severity)
+    - Request a [CVE](https://cveform.mitre.org/) and open an upstream
+      [bug](https://www.qemu.org/contribute/report-a-bug/)
+    - Create an upstream fix patch annotated with
+        - CVE-ID
+        - Link to an upstream bugzilla
+        - Reported-by, Tested-by etc. tags
+    - Once the patch is merged, close the upstream bug with a link to the
+      commit
+        - Fixed in: <commit hash/link>
+
+* Above security lists are operated by select analysts, maintainers and/or
+  representatives from downstream communities.
+
+* List members follow a **responsible disclosure** policy. Any non-public
+  information you share about security issues, is kept confidential within
+  members of the QEMU security team and a minimal supporting staff in their
+  affiliated companies. Such information will not be disclosed to third party
+  organisations/individuals without prior permission from the reporter(s).
+
+* We aim to process security issues within maximum of **60 days**. That is not
+  to say that issues will remain private for 60 days, nope. After the triaging
+  step above
+    - If severity of the issue is sufficiently low, an upstream public bug
+      will be created immediately.
+    - If severity of the issue requires co-ordinated disclosure at a future
+      date, then the embargo process below is followed, and upstream bug will
+      be opened at the end of the embargo period.
+
+  This will allow upstream contributors to create, test and track fix patch(es).
 
 ### Publication embargo
 
-If a security issue is reported that is not already publicly disclosed, an
-embargo date may be assigned and communicated to the reporter. Embargo
-periods will be negotiated by mutual agreement between members of the security
-team and other relevant parties to the problem. Members of the security contact
-list agree not to publicly disclose any details of the security issue until
-the embargo date expires.
+* If a security issue is reported that is not already public and its severity
+  requires coordinated disclosure, then an embargo date will be set and
+  communicated to the reporter(s).
+
+* Embargo periods will be negotiated by mutual agreement between reporter(s),
+  members of the security list and other relevant parties to the problem.
+  The preferred embargo period is upto [2
+  weeks](https://oss-security.openwall.org/wiki/mailing-lists/distros).
+  However, longer embargoes may be negotiated if the severity of the issue
+  requires it.
+
+* Members of the security list agree not to publicly disclose any details of
+  an embargoed security issue until its embargo date expires.
 
 ### CVE allocation
 
-An security issue is assigned with a CVE number. The CVE numbers will usually
-be allocated by one of the vendor security engineers on the security contact
-list.
+Each security issue is assigned a [CVE](https://cveform.mitre.org/) number.
+The CVE number is allocated by one of the vendor security engineers on the
+security list.
 
-## When to contact the QEMU Security Contact List
+## When to contact the QEMU Security List
 
-You should contact the Security Contact List if:
+You should contact the Security List if:
 * You think there may be a security vulnerability in QEMU.
 * You are unsure about how a known vulnerability affects QEMU.
 * You can contact us in English. We are unable to respond in other languages.
 
-## When *not* to contact the QEMU Security Contact List
+## When *not* to contact the QEMU Security List
 * You need assistance in a language other than English.
 * You require technical assistance (for example, "how do I configure QEMU?").
 * You need help upgrading QEMU due to security alerts.
 * Your issue is not security related.
 
 ## How impact and severity of a bug is decided
+
+**Security criterion:**
+    -> [https://www.qemu.org/docs/master/system/security.html](https://www.qemu.org/docs/master/system/security.html)
 
 All security issues in QEMU are not equal. Based on the parts of the QEMU
 sources wherein the bug is found, its impact and severity could vary.
@@ -122,8 +163,3 @@ used to write programs for the SoC device. In such developer environments, it
 is generally assumed that the guest is trusted.
 
 And thus, this buffer overflow turned out to be a security non-issue.
-
-## What to Send to the QEMU Security Contact List
-
-Please provide as much information about your system and the issue as possible
-when contacting the list.
