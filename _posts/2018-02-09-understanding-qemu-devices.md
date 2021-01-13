@@ -80,7 +80,7 @@ treating a file in the host filesystem as raw data (a 1:1 mapping of
 offsets in the host file to disk offsets being accessed by the guest
 driver), but QEMU actually has the ability to glue together a lot of
 different host formats (raw,
-[qcow2](https://git.qemu.org/?p=qemu.git;a=blob;f=docs/interop/qcow2.txt),
+[qcow2](https://gitlab.com/qemu-project/qemu/-/blob/master/docs/interop/qcow2.txt),
 qed,
 [vhdx](https://www.microsoft.com/en-us/download/details.aspx?id=34750),
 ...) and protocols (file system, block device,

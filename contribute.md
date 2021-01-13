@@ -6,7 +6,7 @@ permalink: /contribute/
 * Report a bug in our bugtracker: [https://bugs.launchpad.net/qemu/](https://bugs.launchpad.net/qemu/)<br>
   See also [How to report a bug](report-a-bug/) or [How to report a security bug](security-process/)
 
-* Clone ([or browse](https://git.qemu.org/?p=qemu.git)) the git repository: <br>`git clone https://git.qemu.org/git/qemu.git`
+* Clone ([or browse](https://gitlab.com/qemu-project/qemu)) the git repository: <br>`git clone https://gitlab.com/qemu-project/qemu.git`
 
 * Join the mailing list: [qemu-devel@nongnu.org](https://lists.nongnu.org/mailman/listinfo/qemu-devel)<br>[See the list of QEMU mailing lists](https://wiki.qemu.org/MailingLists)
 

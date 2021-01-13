@@ -15,7 +15,7 @@ developers to share information quickly with the rest of the community.
 We tried to test the website on most browsers and to make it lightweight
 and responsive.  It is built using [Jekyll](https://jekyllrb.com/)
 and the source code for the website can be cloned from the
-[qemu-web.git](https://git.qemu.org/?p=qemu-web.git;a=summary)
+[qemu-web.git](https://gitlab.com/qemu-project/qemu-web.git)
 repository.  Just like for any other project hosted by QEMU, the best way
 to propose or contribute a new change is by sending a patch through the
 [qemu-devel@nongnu.org](https://lists.nongnu.org/mailman/listinfo/qemu-devel)
@@ -25,10 +25,10 @@ confuse it with a qemu.git patch (if you run `git config format.subjectprefix
 
 For example, if you would like to add a new screenshot to the homepage,
 you can clone the `qemu-web.git` repository, add a PNG file to the
-[`screenshots/`](https://git.qemu.org/?p=qemu-web.git;a=tree;f=screenshots;hb=HEAD)
-directory, and edit the [`_data/screenshots.yml`](https://git.qemu.org/?p=qemu-web.git;a=blob;f=_data/screenshots.yml;hb=HEAD)
+[`screenshots/`](https://gitlab.com/qemu-project/qemu-web/-/tree/master/screenshots)
+directory, and edit the [`_data/screenshots.yml`](https://gitlab.com/qemu-project/qemu-web/-/tree/master/_data/screenshots.yml)
 file to include the new screenshot.
 
 Blog posts about QEMU are also welcome; they are simple HTML or Markdown
-files and are stored in the [`_posts/`](https://git.qemu.org/?p=qemu-web.git;a=tree;f=_posts;hb=HEAD)
+files and are stored in the [`_posts/`](https://gitlab.com/qemu-project/qemu-web/-/tree/master/_posts)
 directory of the repository.

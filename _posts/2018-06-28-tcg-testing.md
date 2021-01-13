@@ -69,7 +69,7 @@ tests it can support.
 # `make check-tcg`
 
 With the latest work [merged into
-master](https://git.qemu.org/?p=qemu.git;a=commit;h=de44c044420d1139480fa50c2d5be19223391218) we can now
+master](https://gitlab.com/qemu-project/qemu/-/commit/de44c044420d1139480fa50c2d5be19223391218) we can now
 take advantage of either hand-configured and Docker-based cross
 compilers to build test cases for TCG again. To run the TCG tests
 after you have built QEMU:
@@ -133,5 +133,5 @@ results from a qemu-system emulation. Some architectures have
 semi-hosting support already for this while others report their test
 status over a simple serial link which will need to be parsed and
 handled in custom versions of the
-[`run-%:`](https://git.qemu.org/?p=qemu.git;a=blob;f=tests/tcg/Makefile;h=bf064153900a438e4ad8e2d79eaaac8a27d66062;hb=HEAD#l95)
+[`run-%:`](https://gitlab.com/qemu-project/qemu/-/blob/de44c044420d1139480fa50c2d5be19223391218/tests/tcg/Makefile#L95)
 rule.

@@ -12,7 +12,7 @@ rest of your Linux distribution you may be better served by asking
 through your distribution's support channels. This includes questions
 about a specifically packaged version of QEMU. The QEMU developers are
 generally concerned with the latest release and the current state of
-the [master branch](https://git.qemu.org/?p=qemu.git) and do not
+the [master branch](https://gitlab.com/qemu-project/qemu) and do not
 provide support for QEMU binaries shipped by Linux distributions.
 
 Questions about complex configurations of networking and storage are

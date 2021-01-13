@@ -140,7 +140,7 @@ only be exercised in use cases where QEMU and everything interacting with it is
 trusted.
 
 For example, consider upstream commit [9201bb9 "sdhci.c: Limit the maximum
-block size"](http://git.qemu.org/?p=qemu.git;a=commit;h=9201bb9), an of out of
+block size"](https://gitlab.com/qemu-project/qemu/-/commit/9201bb9), an of out of
 bounds (OOB) memory access (ie. buffer overflow) issue that was found and fixed
 in the SD Host Controller emulation (hw/sd/sdhci.c).
 
@@ -151,7 +151,7 @@ is via 'generic-sdhci' interface.
 
 Of these two, the 'sdhci-pci' interface had actually been disabled by default
 in the upstream QEMU releases (commit [1910913 "sdhci: Make device "sdhci-pci"
-unavailable with -device"](http://git.qemu.org/?p=qemu.git;a=commit;h=1910913)
+unavailable with -device"](https://gitlab.com/qemu-project/qemu/-/commit/1910913)
 at the time the flaw was reported; therefore, guests could not possibly use
 'sdhci-pci' for any purpose.
 
