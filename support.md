@@ -33,10 +33,12 @@ want to send your question to another of [QEMU's mailing
 lists](https://wiki.qemu.org/MailingLists)
 
 * A lot of developers hang around on IRC (network: irc.oftc.net,
-channel #qemu).<br> QEMU developers tend to hold normal office hours
-and are distributed around the world. Please be patient as you may
-have to wait some time for a response. If you can't leave IRC open and
-wait you may be better served by a mailing list.
+channel #qemu, also available via
+[Matrix](https://matrix.to/#/#_oftc_#qemu:matrix.org)).<br> QEMU
+developers tend to hold normal office hours and are distributed around
+the world. Please be patient as you may have to wait some time for a
+response. If you can't leave IRC open and wait you may be better
+served by a mailing list.
 
 * If you think you have found a bug you can report it on [our bug
   tracker](https://bugs.launchpad.net/qemu/).<br>
