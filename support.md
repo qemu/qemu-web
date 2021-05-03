@@ -41,5 +41,5 @@ response. If you can't leave IRC open and wait you may be better
 served by a mailing list.
 
 * If you think you have found a bug you can report it on [our bug
-  tracker](https://bugs.launchpad.net/qemu/).<br>
+  tracker](https://gitlab.com/qemu-project/qemu/-/issues).<br/>
 Please see our guide on [how to report a bug](/contribute/report-a-bug/)

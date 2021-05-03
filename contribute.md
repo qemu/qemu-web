@@ -3,7 +3,8 @@ title: Contribute to QEMU!
 permalink: /contribute/
 ---
 
-* Report a bug in our bugtracker: [https://bugs.launchpad.net/qemu/](https://bugs.launchpad.net/qemu/)<br>
+* Report a bug in our bugtracker:
+  <https://gitlab.com/qemu-project/qemu/-/issues><br/>
   See also [How to report a bug](report-a-bug/) or [How to report a security bug](security-process/)
 
 * Clone ([or browse](https://gitlab.com/qemu-project/qemu)) the git repository: <br>`git clone https://gitlab.com/qemu-project/qemu.git`

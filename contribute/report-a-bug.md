@@ -3,7 +3,10 @@ title: Reporting a bug
 permalink: /contribute/report-a-bug/
 ---
 
-Bugs can be filed at our [bug tracker](https://bugs.launchpad.net/qemu/), which is hosted on Launchpad. If you've got a problem with how your Linux distribution packages QEMU, use the bug tracker from your distro instead.
+Bugs can be filed at our
+[bug tracker](https://gitlab.com/qemu-project/qemu/-/issues), which is hosted
+on GitLab. Note: If you've got a problem with how your Linux distribution
+packages QEMU, please use the bug tracker from your distro instead.
 
 When submitting a bug report, please try to do the following:
 
