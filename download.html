@@ -5,11 +5,18 @@ permalink: /download/
 
 <div class="horiz-menu">
 <ul style="display: none;">
+<li><a href="#source">Source code</a></li>
 <li><a href="#linux">Linux</a></li>
 <li><a href="#macos">macOS</a></li>
 <li><a href="#windows">Windows</a></li>
-<li><a href="#source">Source code</a></li>
 </ul>
+
+<article id="source" class="active">
+	<header>
+	<h2>Source code</h2>
+	</header>
+	{% include_relative _download/source.html %}
+</article>
 
 <article id="linux" class="active">
 	<header>
@@ -32,12 +39,6 @@ permalink: /download/
 	{% markdown_relative _download/windows.md %}
 </article>
 
-<article id="source" class="active">
-	<header>
-	<h2>Source code</h2>
-	</header>
-	{% include_relative _download/source.html %}
-</article>
 </div>
 
 <h2>Version numbering</h2>
