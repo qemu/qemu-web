@@ -13,7 +13,8 @@ through your distribution's support channels. This includes questions
 about a specifically packaged version of QEMU. The QEMU developers are
 generally concerned with the latest release and the current state of
 the [master branch](https://gitlab.com/qemu-project/qemu) and do not
-provide support for QEMU binaries shipped by Linux distributions.
+provide support for older releases or QEMU binaries shipped by third
+party distributions.
 
 Questions about complex configurations of networking and storage are
 usually met with a recommendation to use management tools like
