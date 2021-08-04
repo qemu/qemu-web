@@ -16,7 +16,7 @@ it.
 Thus we are currently considering to get rid of some of the old interfaces
 and features in a future release and have started to collect a list of such
 old items in our
-[QEMU documentation](https://qemu.org/docs/master/system/deprecated.html).
+[QEMU documentation](https://www.qemu.org/docs/master/about/deprecated.html).
 If you are running QEMU directly, please have a look at this deprecation
 chapter of the QEMU documentation to see whether you are still using one of
 these old interfaces or features, so you can adapt your setup to use the new
