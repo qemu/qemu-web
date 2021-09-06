@@ -5,6 +5,11 @@ the the developer mailing list:
 
 https://lists.nongnu.org/mailman/listinfo/qemu-devel
 
+You should also CC the website maintainers:
+
+* Thomas Huth <thuth@redhat.com>
+* Paolo Bonzini <pbonzini@redhat.com>
+
 For further guidance on sending patches consult:
 
 https://wiki.qemu.org/Contribute/SubmitAPatch
