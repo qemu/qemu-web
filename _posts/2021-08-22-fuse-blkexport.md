@@ -1,30 +1,56 @@
 ---
 layout: post
-title:  "Exporting block devices as raw image files with FUSE"
+title:  "Presenting guest images as raw image files with FUSE"
 date:   2021-08-22 14:00:00 +0200
+last_modified_at: 2021-09-06 18:30:00:00 +0200
 author: Hanna Reitz
 categories: [storage, features, tutorials]
 ---
 Sometimes, there is a VM disk image whose contents you want to manipulate
-without booting the VM.  For raw images, that process is usually fairly simple,
-because most Linux systems bring tools for the job, e.g.:
+without booting the VM.  One way of doing this is to use
+[libguestfs](https://libguestfs.org), which can boot a minimal Linux VM to
+provide the host with secure access to the disk’s contents.  For example,
+[*guestmount*](https://libguestfs.org/guestmount.1.html) allows you to mount a
+guest filesystem on the host, without requiring root rights.
+
+However, maybe you cannot or do not want to use libguestfs, e.g. because you do
+not have KVM available in your environment, and so it becomes too slow; or
+because you do not want to go through a guest OS, but want to access the raw
+image data directly on the host, with minimal overhead.
+
+**Note**: Guest images can generally be arbitrarily modified by VM guests.  If
+you have an image to which an untrusted guest had write access at some point,
+you must treat any data and metadata on this image as potentially having been
+modified in a malicious manner.  Parsing anything must be done carefully and
+with caution.  Note that many existing tools are not careful in this regard, for
+example, filesystem drivers generally deliberately do not have protection
+against maliciously corrupted filesystems.  This is why in contrast accessing an
+image through libguestfs is considered secure, because the actual access happens
+in a libvirt-managed VM guest.
+
+From this point, we assume you are aware of the security caveats and still want
+to access and manipulate image data on the host.
+
+Now, unless your image is already in raw format, you will be faced with the
+problem of getting it into raw format.  The tools that you might want to use for
+image manipulation generally only work on raw images (because that is how block
+device files appear), like:
 * *dd* to just copy data to and from given offsets,
 * *parted* to manipulate the partition table,
 * *kpartx* to present all partitions as block devices,
 * *mount* to access filesystems’ contents.
 
-Sadly, but naturally, such tools only work for raw images, and not for images
-e.g. in QEMU’s qcow2 format.  To access such an image’s content, the format has
-to be translated to create a raw image, for example by:
+So if you want to use such tools on image files e.g. in QEMU’s qcow2 format, you
+will need to translate them into raw images first, for example by:
 * Exporting the image file with `qemu-nbd -c` as an NBD block device file,
 * Converting between image formats using `qemu-img convert`,
 * Accessing the image from a guest, where it appears as a normal block device.
 
 Unfortunately, none of these methods is perfect: `qemu-nbd -c` generally
-requires root rights, converting to a temporary raw copy requires additional
-disk space and the conversion process takes time, and accessing the image from a
-guest is just quite cumbersome in general (and also specifically something that
-we set out to avoid in the first sentence of this blog post).
+requires root rights; converting to a temporary raw copy requires additional
+disk space and the conversion process takes time; and accessing the image from a
+guest is basically what libguestfs does (i.e., if that is what you want, then
+you should probably use libguestfs).
 
 As of QEMU 6.0, there is another method, namely FUSE block exports.
 Conceptually, these are rather similar to using `qemu-nbd -c`, but they do not
@@ -42,15 +68,67 @@ mounting remote directories from a machine accessible via SSH.
 
 QEMU can use FUSE to make a virtual block device appear as a normal file on the
 host, so that tools like *kpartx* can interact with it regardless of the image
-format.
+format, like in the following example:
 
-## Background information
+```
+$ qemu-img create -f raw foo.img 20G
+Formatting 'foo.img', fmt=raw size=21474836480
 
-### File mounts
+$ parted -s foo.img \
+    'mklabel msdos' \
+    'mkpart primary ext4 2048s 100%'
 
-A perhaps little-known fact is that, on Linux, filesystems do not need to have
-a root directory, they only need to have a root node.  A filesystem that only
-provides a single regular file is perfectly valid.
+$ qemu-img convert -p -f raw -O qcow2 foo.img foo.qcow2 && rm foo.img
+    (100.00/100%)
+
+$ file foo.qcow2
+foo.qcow2: QEMU QCOW2 Image (v3), 21474836480 bytes
+
+$ sudo kpartx -l foo.qcow2
+
+$ qemu-storage-daemon \
+    --blockdev node-name=prot-node,driver=file,filename=foo.qcow2 \
+    --blockdev node-name=fmt-node,driver=qcow2,file=prot-node \
+    --export \
+    type=fuse,id=exp0,node-name=fmt-node,mountpoint=foo.qcow2,writable=on \
+    &
+[1] 200495
+
+$ file foo.qcow2
+foo.qcow2: DOS/MBR boot sector; partition 1 : ID=0x83, start-CHS (0x10,0,1),
+end-CHS (0x3ff,3,32), startsector 2048, 41940992 sectors
+
+$ sudo kpartx -av foo.qcow2
+add map loop0p1 (254:0): 0 41940992 linear 7:0 2048
+```
+
+In this example, we create a partition on a newly created raw image.  We then
+convert this raw image to qcow2 and discard the original.  Because a tool like
+*kpartx* cannot parse the qcow2 format, it reports no partitions to be present
+in `foo.qcow2`.
+
+Using the QEMU storage daemon, we then create a FUSE export for the image that
+apparently turns it into a raw image, which makes the content and thus the
+partitions visible to *file* and *kpartx*.  Now, we can use *kpartx* to access
+the partition in `foo.qcow2` under `/dev/mapper/loop0p1`.
+
+So how does this work?  How can the QEMU storage daemon make a qcow2 image
+appear as a raw image?
+
+## File mounts
+
+To transparently translate a file into a different format, like we did above, we
+make use of two little-known facts about filesystems and the VFS on Linux.  The
+first one of these we can explain immediately, for the second one we will need
+some more information about how FUSE exports work, so that secret will be lifted
+later (down in the “Mounting an image on itself” section).
+
+Here is the first secret: Filesystems do not need to have a root directory.
+They only need a root node.  A regular file is a node, so a filesystem that only
+consists of a single regular file is perfectly valid.
+
+Note that this is not about filesystems with just a single file in their root
+directory, but about filesystems that really *do not have* a root directory.
 
 Conceptually, every filesystem is a tree, and mounting works by replacing one
 subtree of the global VFS tree by the mounted filesystem’s tree.  Normally, a
@@ -65,7 +143,8 @@ shadowed by the new filesystem (showing `/foo/x` and `/foo/y`).
 
 Note that a filesystem’s root node generally has no name.  After mounting, the
 filesystem’s root directory’s name is determined by the original name of the
-mount point.
+mount point.  (“/” is not a name.  It specifically is a directory without a
+name.)
 
 Because a tree does not need to have multiple nodes but may consist of just a
 single leaf, a filesystem with a file for its root node works just as well,
@@ -81,7 +160,10 @@ point for it must also be a regular file (`/foo/a` in our example), and just
 like before, the content of `/foo/a` is shadowed, and when opening it, one will
 instead see the contents of FS B’s unnamed root node.
 
-### QEMU block exports
+## QEMU block exports
+
+Before we can see what FUSE exports are and how they work, we should explore
+QEMU block exports in general.
 
 QEMU allows exporting block nodes via various protocols (as of 6.0: NBD,
 vhost-user, FUSE).  A block node is an element of QEMU’s block graph (see e.g.
@@ -108,7 +190,7 @@ The command line to achieve the above could look something like this:
 $ qemu-system-x86_64 \
     -blockdev node-name=prot-node,driver=file,filename=$image_path \
     -blockdev node-name=fmt-node,driver=qcow2,file=prot-node \
-    -device virtio-blk,drive=fmt-node
+    -device virtio-blk,drive=fmt-node,share-rw=on
 ```
 
 Besides attaching guest devices to block nodes, you can also export them for
@@ -131,9 +213,10 @@ the QEMU instance above, then you could do this:
     "execute": "block-export-add",
     "arguments": {
         "type": "nbd",
-        "id": "fmt-node-export",
+        "id": "exp0",
         "node-name": "fmt-node",
-        "name": "guest-disk"
+        "name": "guest-disk",
+        "writable": true
     }
 }
 ```
@@ -168,7 +251,8 @@ $ qemu-storage-daemon \
     --blockdev node-name=prot-node,driver=file,filename=$image_path \
     --blockdev node-name=fmt-node,driver=qcow2,file=prot-node \
     --nbd-server addr.type=inet,addr.host=localhost,addr.port=10809 \
-    --export type=nbd,id=fmt-node-export,node-name=fmt-node,name=guest-disk
+    --export \
+    type=nbd,id=exp0,node-name=fmt-node,name=guest-disk,writable=on
 ```
 
 Which creates the following block graph:
@@ -194,7 +278,8 @@ $ touch mount-point
 $ qemu-storage-daemon \
   --blockdev node-name=prot-node,driver=file,filename=$image_path \
   --blockdev node-name=fmt-node,driver=qcow2,file=prot-node \
-  --export type=fuse,id=fmt-node-export,node-name=fmt-node,mountpoint=mount-point
+  --export \
+  type=fuse,id=exp0,node-name=fmt-node,mountpoint=mount-point,writable=on
 ```
 
 The mount point now appears as the raw VM disk that is stored in the qcow2
@@ -237,7 +322,11 @@ disk size: 0 B
 ## Mounting an image on itself
 
 So far, we have seen what FUSE exports are, how they work, and how they can be
-used.  Now let’s add an interesting twist.
+used.  However, in the very first example in this blog post, we did not export
+the raw image on some empty regular file that just serves as a mount point – no,
+we turned the original qcow2 image itself into a raw image.
+
+How does that work?
 
 ### What happens to the old tree under a mount point?
 
@@ -330,7 +419,8 @@ Format specific information:
 
 $ qemu-storage-daemon --blockdev \
    node-name=node0,driver=qcow2,file.driver=file,file.filename=foo.qcow2 \
-   --export type=fuse,id=node0-export,node-name=node0,mountpoint=foo.qcow2 &
+   --export \
+   type=fuse,id=node0-export,node-name=node0,mountpoint=foo.qcow2,writable=on &
 [1] 40843
 
 $ qemu-img info foo.qcow2
@@ -355,17 +445,17 @@ that opens the image by name (i.e. `open("foo.qcow2")`) will open the raw disk
 image exported by QEMU.  Therefore, it looks like the qcow2 image is in raw
 format now.
 
-### `qemu-fuse-disk-export.py`
+### *qemu-fuse-disk-export.py*
 
 Because the QEMU storage daemon command line tends to become kind of long, I’ve
 written a script to facilitate the process:
-[qemu-fuse-disk-export.py](https://gitlab.com/hreitz/qemu-scripts/-/blob/main/qemu-fuse-disk-export.py)
+[*qemu-fuse-disk-export.py*](https://gitlab.com/hreitz/qemu-scripts/-/blob/main/qemu-fuse-disk-export.py)
 ([direct download link](https://gitlab.com/hreitz/qemu-scripts/-/raw/main/qemu-fuse-disk-export.py?inline=false)).
 This script automatically detects the image format, and its `--daemonize` option
 allows safe use in scripts, where it is important that the process blocks until
 the export is fully set up.
 
-Using `qemu-fuse-disk-export.py`, the above example looks like this:
+Using *qemu-fuse-disk-export.py*, the above example looks like this:
 ```
 $ qemu-img info foo.qcow2 | grep 'file format'
 file format: qcow2
