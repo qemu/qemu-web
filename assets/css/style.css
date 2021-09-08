@@ -428,7 +428,7 @@
 /* Columns                                                                       */
 /*********************************************************************************/
 
-	#main, #copyright-inner
+	#main
 	{
 		margin-left: 16.667%;
 		width: 66.667%;
@@ -525,23 +525,19 @@
 		margin: 0
 	}
 
-/*********************************************************************************/
-/* Copyright                                                                     */
-/*********************************************************************************/
-
-	#copyright
-	{
-		clear: left;
-		border-top: 1px solid #aaaaaa;
-		position: relative;
-		color: #aaaaaa;
-		background: #ffffff;
-		padding: 1em 0em;
+	#licenses {
+		padding: 0em;
+		padding-left: 1em;
+		padding-right: 1em;
+		font-size: smaller;
+		color: #401200;
+		background: #fff;
+		margin: 1em;
+		margin-top: 2em;
 	}
 
-	#copyright a
-	{
-		color: inherit;
+	#licenses {
+		float: right;
 	}
 
 /*********************************************************************************/
