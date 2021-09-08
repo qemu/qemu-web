@@ -533,7 +533,7 @@
 		padding-left: 1em;
 	}
 
-	#licenses, #conservancy {
+	#licenses, #conservancy, #edit-page {
 		padding: 0em;
 		padding-left: 1em;
 		padding-right: 1em;
@@ -544,12 +544,21 @@
 		margin-top: 1em;
 	}
 
-	#licenses {
+	#licenses, #edit-page {
 		float: right;
 	}
 
 	#conservancy {
 		float: left;
+	}
+
+	#edit-page a {
+		overflow: hidden;
+		background: url(../images/edit-page.png);
+		display: inline-block;
+		width: 24px;
+		height: 24px;
+		padding-left: 24px;
 	}
 
 /*********************************************************************************/
