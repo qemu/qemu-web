@@ -525,7 +525,7 @@
 		margin: 0
 	}
 
-	#licenses {
+	#licenses, #conservancy {
 		padding: 0em;
 		padding-left: 1em;
 		padding-right: 1em;
@@ -538,6 +538,10 @@
 
 	#licenses {
 		float: right;
+	}
+
+	#conservancy {
+		float: left;
 	}
 
 /*********************************************************************************/
