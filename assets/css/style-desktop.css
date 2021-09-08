@@ -104,26 +104,7 @@
 
 	#footer
 	{
-		padding: 1em 0em;
-	}
-
-	#footer-inner
-	{
-		width: 95%;
-		display: table;
-		margin: auto;
-	}
-
-	#footer ul
-	{
-		width: 25%;
-		display: table-cell;
-		padding-left: 2em;
-	}
-
-	#footer ul:first-child
-	{
-		padding-left: 0px;
+		clear: both;
 	}
 
 /*********************************************************************************/

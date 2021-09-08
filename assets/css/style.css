@@ -504,9 +504,6 @@
 	#footer
 	{
 		position: relative;
-		clear: left;
-		background: #401200;
-		color: #FFF;
 	}
 
 	#footer a
@@ -516,13 +513,24 @@
 
 	#footer ul
 	{
-		vertical-align: top;
+		margin: 0em;
 	}
 
-	#footer ul, #footer ul > li
-	{
-		padding: 0;
-		margin: 0
+	#external-links {
+		padding: 0em;
+		padding-top: 0.3em;
+		padding-bottom: 0.3em;
+		background: #401200;
+		color: #FFF;
+		text-align: center;
+	}
+
+	#external-links li {
+		display: inline;
+	}
+
+	#external-links li a {
+		padding-left: 1em;
 	}
 
 	#licenses, #conservancy {
@@ -533,7 +541,7 @@
 		color: #401200;
 		background: #fff;
 		margin: 1em;
-		margin-top: 2em;
+		margin-top: 1em;
 	}
 
 	#licenses {
