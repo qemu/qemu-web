@@ -18,9 +18,9 @@ When submitting a bug report, please try to do the following:
 
 * Include information about the host and guest (operating system, version, 32/64-bit).
 
-* Do not contribute patches on the bug tracker; send patches to the mailing list. Follow QEMU's [guidelines about submitting patches](https://wiki.qemu.org/Contribute/SubmitAPatch).
+QEMU does not use GitLab merge requests; patches are sent to the mailing list according to QEMU's [patch submissions guidelines](https://wiki.qemu.org/Contribute/SubmitAPatch).
 
-Do NOT report security issues (or other bugs, too) as "private" bugs in the
+Do NOT report security issues (or other bugs, too) as "confidential" bugs in the
 bug tracker.  QEMU has a [security process](../security-process) for issues
 that should be reported in a non-public way instead.
 
