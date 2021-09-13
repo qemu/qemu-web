@@ -25,3 +25,5 @@ end
 
 # for https://github.com/sass/sassc-ruby/issues/146
 gem "sassc", ">= 2.2.1"
+
+gem "webrick", "~> 1.7"
