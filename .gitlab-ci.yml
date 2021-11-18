@@ -1,7 +1,6 @@
 
 stages:
   - build
-  - update
 
 pages:
   image: centos:8
@@ -19,26 +18,3 @@ pages:
   artifacts:
     paths:
      - public
-
-deploy:
-  image: centos:8
-  stage: update
-  needs:
-    - job: pages
-      artifacts: true
-  before_script:
-    - dnf install -y openssh-clients rsync
-    - eval $(ssh-agent -s)
-    - cat "$SSH_PRIVATE_KEY_FILE" | tr -d '\r' | ssh-add -
-    - mkdir -m700 -p ~/.ssh
-    - - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" >> ~/.ssh/config'
-  script:
-    - ssh $SSH_DEPLOY_DESTINATION "cd /var/www/qemu-project.org && mkdir new && rsync -az root/ new"
-    - rsync -avz --delete public/ $SSH_DEPLOY_DESTINATION:/var/www/qemu-project.org/new
-    - ssh $SSH_DEPLOY_DESTINATION "cd /var/www/qemu-project.org && rm -rf old && mv root old && mv new root"
-  only:
-    refs:
-      - master
-    variables:
-      - $SSH_PRIVATE_KEY_FILE
-      - $SSH_DEPLOY_DESTINATION
