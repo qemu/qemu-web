@@ -12,7 +12,7 @@ You should also CC the website maintainers:
 
 For further guidance on sending patches consult:
 
-https://wiki.qemu.org/Contribute/SubmitAPatch
+https://qemu.org/contribute/submit-a-patch/
 
 It is expected that contributors check the rendered website before submitting
 patches. This is possible by either running jekyll locally, or by using the
