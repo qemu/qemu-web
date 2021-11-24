@@ -533,7 +533,7 @@
 		padding-left: 1em;
 	}
 
-	#licenses, #conservancy, #edit-page {
+	#licenses, #conservancy, #sponsors, #edit-page {
 		padding: 0em;
 		padding-left: 1em;
 		padding-right: 1em;
@@ -549,6 +549,10 @@
 	}
 
 	#conservancy {
+		float: left;
+	}
+
+	#sponsors {
 		float: left;
 	}
 
