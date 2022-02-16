@@ -3,7 +3,7 @@ stages:
   - build
 
 pages:
-  image: centos:8
+  image: rockylinux:8
   stage: build
   cache:
     paths:
