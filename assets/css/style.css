@@ -504,6 +504,7 @@
 	#footer
 	{
 		position: relative;
+		clear: both;
 	}
 
 	#footer a
