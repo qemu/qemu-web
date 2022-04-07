@@ -1,6 +1,6 @@
 - branch: "7.0"
-  patch: 0-rc2
-  date: "Mar 29th 2022"
+  patch: 0-rc3
+  date: "Apr 6th 2022"
 - branch: "6.2"
   patch: 0
   date: "Dec 14th 2021"
