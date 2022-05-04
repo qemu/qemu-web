@@ -23,6 +23,18 @@ make
 </pre>
 	{% endfor %}
 
+	<p>Source tarballs for official QEMU releases are signed by the release
+    manager using
+        <a href="https://keys.openpgp.org/vks/v1/by-fingerprint/CEACC9E15534EBABB82D3FA03353C9CEF108B584">this GPG public key</a>.
+
+<pre>
+pub   rsa2048 2013-10-18 [SC]
+      CEACC9E15534EBABB82D3FA03353C9CEF108B584
+uid           [ unknown] Michael Roth <michael.roth@amd.com>
+uid           [ unknown] Michael Roth <flukshun@gmail.com>
+uid           [ unknown] Michael Roth <mdroth@utexas.edu>
+sub   rsa2048 2013-10-18 [E]
+</pre>
 	<p>To download and build QEMU from git:</p>
 <pre>git clone https://gitlab.com/qemu-project/qemu.git
 cd qemu
