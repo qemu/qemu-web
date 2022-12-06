@@ -80,7 +80,7 @@ module Jekyll
     def alias_template(destination_path)
       <<-EOF
       <!DOCTYPE html>
-      <html>
+      <html lang="en">
       <head>
       <link rel="canonical" href="#{destination_path}"/>
       <meta http-equiv="content-type" content="text/html; charset=utf-8" />
