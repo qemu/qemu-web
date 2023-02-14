@@ -11,8 +11,8 @@ a choice of two licenses:
 
 ## Site design
 
-The design is derived from the [Linear](https://templated.co/linear)
-template from [TEMPLATED](http://templated.co). It is made available
-under:
+The design is derived from the
+[Linear](https://jekyll-demos.github.io/Linear-Jekyll-Theme/) template
+by TEMPLATED. It is made available under:
 
  * [Creative Commons Attribution 3.0 Unported](/license-cc-by-3.0)
