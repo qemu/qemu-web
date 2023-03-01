@@ -97,7 +97,7 @@ With the "KVM Monolithic" patch series applied, Andrea's microbenchmarks
 show a double-digit improvement in performance with default mitigations
 (for Spectre v2, et al) enabled on both Intel 'VMX' and AMD 'SVM'.  And
 with 'spectre_v2=off' or for CPUs with IBRS_ALL in ARCH_CAPABILITIES
-"KVM monolithic" still improve[s] performance, albiet it's on the order
+"KVM monolithic" still improve[s] performance, albeit it's on the order
 of 1%.
 
 Conclusion
