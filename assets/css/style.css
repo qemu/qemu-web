@@ -184,6 +184,10 @@
 		color: #999999;
 	}
 
+	.asciicast {
+		width: 45em;
+	}
+
 	/* Sections/Articles */
 
 		section,
