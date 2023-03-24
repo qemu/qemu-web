@@ -27,6 +27,7 @@
 			-o-box-sizing: border-box;
 			-ms-box-sizing: border-box;
 			box-sizing: border-box;
+			max-width: 100%;
 		}
 
 	/* Rows */
