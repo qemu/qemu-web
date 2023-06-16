@@ -1,0 +1,31 @@
+This is a Dockerfile for a container that serves the following hosts:
+
+- qemu.org, www.qemu.org: a proxy server that "hides" the fact that
+  the QEMU web pages are actually hosted as GitLab pages under either
+  qemu-project.gitlab.io/qemu (the documentation) or
+  qemu-project.gitlab.io/qemu-web (the main website)
+
+- git.qemu.org: a simple redirect to gitlab.com/qemu-project for
+  both web browsers and git's smart HTTP backend
+
+
+A sample systemd service that publishes the website on port 8082
+is as follows:
+
+```
+[Unit]
+Description=Podman instance control service for Apache proxy server
+Requires=network.target
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+Restart=always
+ExecStartPre=-podman stop qemu-web ; -podman rm qemu-web
+ExecStart=podman run --name qemu-web --publish=8082:80 qemu:qemu-web
+ExecStop=podman stop -t 10 qemu-web
+RestartSec=60
+
+[Install]
+WantedBy=default.target
+```
