@@ -3,7 +3,7 @@ stages:
   - build
 
 pages:
-  image: rockylinux:8
+  image: almalinux:9
   stage: build
   cache:
     paths:
