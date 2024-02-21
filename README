@@ -32,7 +32,8 @@ required Jekyll software should be installed locally:
 
 * Install Jekyll and its dependencies
 
-   # bundle install --path vendor
+   # bundle config set --local path 'vendor'
+   # bundle install
 
   NB this last command must be run from the qemu-web.git checkout
   root directory.
