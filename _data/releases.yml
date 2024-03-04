@@ -1,6 +1,6 @@
 - branch: "8.2"
-  patch: 1
-  date: "Jan 29th 2024"
+  patch: 2
+  date: "Mar 4th 2024"
 - branch: "8.1"
   patch: 5
   date: "Jan 29th 2024"
