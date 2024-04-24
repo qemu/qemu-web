@@ -11,8 +11,8 @@
   patch: 5
   date: "Sep 21st 2023"
 - branch: "7.2"
-  patch: 10
-  date: "Mar 4th 2024"
+  patch: 11
+  date: "Apr 24th 2024"
 - branch: "7.1"
   patch: 0
   date: "Aug 30th 2022"
