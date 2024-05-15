@@ -5,7 +5,7 @@ date:   2024-05-06 07:00:00 +0100
 categories: [presentations, conferences]
 ---
 
-The [KVM Forum 2024](https://kvm-forum.qemu.org/2024/) conference will take
+The [KVM Forum 2024](https://kvm-forum.qemu.org/) conference will take
 place in Brno, Czech Republic on September 22-23, 2024. KVM Forum brings
 together the Linux virtualization community, especially around the KVM stack,
 including QEMU and other virtual machine monitors.
