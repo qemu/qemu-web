@@ -18,7 +18,7 @@ When submitting a bug report, please try to do the following:
 
 * Include information about the host and guest (operating system, version, 32/64-bit).
 
-QEMU does not use GitLab merge requests; patches are sent to the mailing list according to QEMU's [patch submissions guidelines](../submit-a-patch).
+QEMU does not use GitLab merge requests; patches are sent to the mailing list according to QEMU's [patch submissions guidelines](../submit-a-patch/).
 
 Do NOT report security issues (or other bugs, too) as "confidential" bugs in the
 bug tracker.  QEMU has a [security process](../security-process) for issues
