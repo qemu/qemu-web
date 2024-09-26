@@ -36,10 +36,10 @@ lists](https://wiki.qemu.org/MailingLists)
 * A lot of developers hang around on IRC (network: irc.oftc.net,
 channel #qemu, also available via
 [Matrix](https://matrix.to/#/#_oftc_#qemu:matrix.org)).<br> QEMU
-developers tend to hold normal office hours and are distributed around
-the world. Please be patient as you may have to wait some time for a
-response. If you can't leave IRC open and wait you may be better
-served by a mailing list.
+developers tend to be available on working week days and are distributed around
+the world across all time zones. Please be patient as you may have to stay
+connected and wait for a response. If you can't leave IRC open and wait you may
+also seek help in a mailing list.
 
 * If you think you have found a bug you can report it on [our bug
   tracker](https://gitlab.com/qemu-project/qemu/-/issues).<br/>
