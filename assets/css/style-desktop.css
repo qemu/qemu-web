@@ -248,14 +248,6 @@
 			font-weight: 500;
 		}
 
-/*
-		#nav > ul > li.home
-		{
-			display: block;
-			float: left;
-		}
-*/
-
 		#nav > ul > li > ul
 		{
 			display: none;
