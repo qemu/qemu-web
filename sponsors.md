@@ -3,7 +3,9 @@ title: QEMU sponsors
 permalink: /sponsors/
 ---
 
-QEMU has sponsors!
+QEMU has ongoing sponsorship agreements with a number of companies and
+organizations, who provide resources (software, hardware, monetary) to
+assist in the project's operations.
 
 [Azure](https://azure.microsoft.com/) and [DigitalOcean](https://www.digitalocean.com/)
 provide QEMU and [Patchew](https://patchew.org) with virtual machines and
@@ -23,6 +25,7 @@ QEMU is a member of the [GitLab for Open Source](https://about.gitlab.com/soluti
 program.
 
 You too can sponsor QEMU and be listed on this page; please contact the
-maintainers on the [QEMU mailing list](mailto:qemu-devel@nongnu.org).
-You can also [donate](https://paypal.com/donate/?hosted_button_id=YN74TZRMBBM6U)
-to the project via PayPal.
+maintainers on the [QEMU mailing list](mailto:qemu-devel@nongnu.org) or
+the QEMU [project leadership members](../conservancy).
+
+For informal contributions, consult the [donations](../donations) page.
