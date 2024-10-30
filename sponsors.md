@@ -5,9 +5,12 @@ permalink: /sponsors/
 
 QEMU has sponsors!
 
-The [Azure credits for open source projects](https://opensource.microsoft.com/azure-credits/)
-program provides QEMU and [Patchew](https://patchew.org) with virtual machines and
-other cloud resources.
+[Azure](https://azure.microsoft.com/) and [DigitalOcean](https://www.digitalocean.com/)
+provide QEMU and [Patchew](https://patchew.org) with virtual machines and
+other cloud resources through the [Azure credits for open source
+projects](https://opensource.microsoft.com/azure-credits/) and [DigitalOcean
+Open Source Credits](https://www.digitalocean.com/open-source/credits-for-projects)
+programs.
 
 [Equinix](https://www.arm.com/markets/computing-infrastructure/works-on-arm?#Equinix),
 [IBM LinuxONE Community Cloud](https://developer.ibm.com/articles/get-started-with-ibm-linuxone/)
