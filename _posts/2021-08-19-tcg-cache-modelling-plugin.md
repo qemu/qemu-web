@@ -3,7 +3,7 @@ layout: post
 title:  "Cache Modelling TCG Plugin"
 date:   2021-08-19 10:00:00 +0200
 author: Mahmoud Mandour
-categories: [TCG plugins, GSOC]
+categories: [tcg-plugins, gsoc]
 ---
 
 [Caches](https://en.wikipedia.org/wiki/CPU_cache) are a key way that enables
