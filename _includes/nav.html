@@ -2,7 +2,8 @@
 	<nav id="nav">
 		<ul>
 			{% assign current = page.url | downcase | split: '/' %}
-			<li class='{% if page.url == '/' %}not-desktop {%endif %}home'><a href="{{ relative_root }}/">Home</a>
+			<li{% if page.url == '/' %} class='not-desktop'{%endif %}><a href="{{ relative_root }}/">Home</a>
+			{% if page.url == '/' %}<li class='donations'><a href="{{ relative_root }}/donations">Donations</a>{%endif %}
 			</li><li {% if current[1] == 'download' %}class='current'{% endif %}><a href="{{ relative_root }}/download">Download</a>
 			</li><li {% if current[1] == 'support' %}class='current'{% endif %}><a href="{{ relative_root }}/support">Support</a>
 			</li><li {% if current[1] == 'contribute' %}class='current'{% endif %}><a href="{{ relative_root }}/contribute">Contribute</a>
