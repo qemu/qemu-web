@@ -10,12 +10,6 @@
 - branch: "8.2"
   patch: 8
   date: "Nov 20th 2024"
-- branch: "8.1"
-  patch: 5
-  date: "Jan 29th 2024"
-- branch: "8.0"
-  patch: 5
-  date: "Sep 21st 2023"
 - branch: "7.2"
   patch: 14
   date: "September 18th 2024"
