@@ -1,5 +1,5 @@
 - branch: "9.2"
-  patch: 0-
+  patch: 0
   date: "Dec 10th 2024"
 - branch: "9.1"
   patch: 2
