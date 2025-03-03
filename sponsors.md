@@ -7,17 +7,17 @@ QEMU has ongoing sponsorship agreements with a number of companies and
 organizations, who provide resources (software, hardware, monetary) to
 assist in the project's operations.
 
-[Azure](https://azure.microsoft.com/) and [DigitalOcean](https://www.digitalocean.com/)
-provide QEMU and [Patchew](https://patchew.org) with virtual machines and
-other cloud resources through the [Azure credits for open source
-projects](https://opensource.microsoft.com/azure-credits/) and [DigitalOcean
-Open Source Credits](https://www.digitalocean.com/open-source/credits-for-projects)
-programs.
+QEMU's continuous integration is supported by:
+* [AWS](https://aws.amazon.com/) through the [AWS credits for open source
+  projects](https://aws.amazon.com/blogs/opensource/aws-promotional-credits-open-source-projects/) program
+* [Digital Ocean](https://digitalocean.com/) through the [DigitalOcean Open
+  Source Credits](https://www.digitalocean.com/open-source/credits-for-projects)
+  program
+* [Equinix](https://www.arm.com/markets/computing-infrastructure/works-on-arm?#Equinix),
+* [IBM LinuxONE Community Cloud](https://developer.ibm.com/articles/get-started-with-ibm-linuxone/)
 
-[Equinix](https://www.arm.com/markets/computing-infrastructure/works-on-arm?#Equinix),
-[IBM LinuxONE Community Cloud](https://developer.ibm.com/articles/get-started-with-ibm-linuxone/)
-and the [Oregon State University Open Source Labs](https://www.osuosl.org)
-also provide QEMU with access to compute hosts.
+The [Oregon State University Open Source Labs](https://www.osuosl.org)
+provides QEMU and [Patchew](https://patchew.org) with access to compute hosts.
 
 Downloads are hosted by [GNOME](https://gnome.org/).
 
