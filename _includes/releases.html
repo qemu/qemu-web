@@ -1,5 +1,5 @@
 <ul>
-{% for release in site.data.releases offset: 0 limit: 5 %}
+{% for release in site.data.releases offset: 0 limit: 6 %}
 <li><strong><a
   href="https://download.qemu.org/qemu-{{release.branch}}.{{release.patch}}.tar.xz">{{release.branch}}.{{release.patch}}</a></strong>
   {{release.date}}<br><a
