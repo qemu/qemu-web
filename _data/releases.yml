@@ -1,3 +1,6 @@
+- branch: "10.1"
+  patch: 0-rc0
+  date: "July 23rd 2025"
 - branch: "10.0"
   patch: 2
   date: "May 26th 2025"
