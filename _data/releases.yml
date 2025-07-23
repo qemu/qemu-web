@@ -10,9 +10,6 @@
 - branch: "9.1"
   patch: 3
   date: "Feb 8th 2025"
-- branch: "8.2"
-  patch: 10
-  date: "Mar 26th 2025"
 - branch: "7.2"
   patch: 18
   date: "May 26th 2025"
