@@ -8,14 +8,6 @@ list at:
 
 * [\<qemu-security@nongnu.org\>](https://lists.nongnu.org/mailman/listinfo/qemu-security)
 
-To report an issue via [GPG](https://gnupg.org/) encrypted email, please send
-it to the Red Hat Product Security team at:
-
-* [\<secalert@redhat.com\>](https://access.redhat.com/security/team/contact/#contact)
-
-**Note:** after the triage, encrypted issue details shall be sent to the upstream
-'qemu-security' mailing list for archival purposes.
-
 ## How to report an issue:
 
 * Please include as many details as possible in the issue report.
