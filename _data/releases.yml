@@ -1,6 +1,6 @@
 - branch: "10.1"
-  patch: 0-rc3-reupload
-  date: "Aug 12th 2025"
+  patch: 0-rc4
+  date: "Aug 20th 2025"
 - branch: "10.0"
   patch: 3
   date: "July 23rd 2025"
