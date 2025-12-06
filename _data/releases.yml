@@ -2,8 +2,8 @@
   patch: 0-rc2
   date: "Dec 2nd 2025"
 - branch: "10.1"
-  patch: 2
-  date: "Oct 20th 2025"
+  patch: 3
+  date: "Dec 5th 2025"
 - branch: "10.0"
   patch: 7
   date: "Dec 5th 2025"
