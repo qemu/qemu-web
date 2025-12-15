@@ -1,7 +1,7 @@
 ---
 title: QEMU
 layout: home
-colorbox: True
+glightbox: True
 ---
 {% include relative_root.html %}
 	<!-- Header -->
@@ -38,26 +38,16 @@ colorbox: True
 			{% include screenshot.html offset=3 limit=10 %}
 			</section>
 
-<script src="{{ relative_root }}/assets/js/object-fit.js"></script>
 <script>
-window.hasColorBox = false;
-$(window).on("load resize", function() {
-    isMobile = window.innerWidth < 700;
-    if (isMobile && window.hasColorBox) {
-        window.hasColorBox = false;
-        $.colorbox.remove();
-    } else if (!isMobile && !window.hasColorBox) {
-	window.hasColorBox = true;
-	$('.colorbox').colorbox({
-            'rel': '.colorbox',
-            'title': function() { return $(this).attr("data-title"); }
-        });
-    }
+window.addEventListener("load", function() {
+	GLightbox({touchNavigation: true, loop: true})
 });
-// make links to images inactive, except through the colorbox
-$('.colorbox').on("click.random-namespace", function() {
-    return window.hasColorBox;
-})
+// make links to images inactive, except through the lightbox
+document.querySelectorAll('.glightbox').forEach(function(element) {
+    element.addEventListener("click", function() {
+        return false;
+    });
+});
 </script>
 
 		</div>

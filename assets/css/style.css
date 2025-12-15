@@ -85,11 +85,7 @@
 		{
 			color: inherit;
 			font-weight: inherit;
-		}
-
-		h1 a:hover, h2 a:hover, h3 a:hover, h4 a:hover, h5 a:hover, h6 a:hover
-		{
-			text-decoration: none;
+			text-decoration: underline;
 		}
 
 	pre
