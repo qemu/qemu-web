@@ -171,16 +171,29 @@
 		border-bottom: 5px #802400 solid;
 	}
 
-	.horiz-menu > article
-	{
-		padding-top: 1em;
+	.horiz-menu > article {
+		display: grid;
+		grid-template-rows: 0fr;
+		overflow: hidden;
 		margin: 0;
-		display: none;
+	}
+	.horiz-menu > article.active {
+		grid-template-rows: 1fr;
 	}
 
-	.horiz-menu > article.active
-	{
-		display: block;
+	.horiz-menu > article > div {
+		min-height: 0;
+		visibility: hidden;
+	}
+	.horiz-menu > article.active > div {
+		visibility: visible;
+	}
+
+	.horiz-menu > article.animate {
+		transition: 0.8s ease grid-template-rows;
+	}
+	.horiz-menu > article.animate > div {
+		transition: 0.8s ease visibility;
 	}
 
 /*********************************************************************************/

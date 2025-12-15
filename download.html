@@ -12,31 +12,39 @@ permalink: /download/
 </ul>
 
 <article id="source" class="active">
+  <div>
 	<header>
 	<h2>Source code</h2>
 	</header>
 	{% include_relative _download/source.html %}
+  </div>
 </article>
 
 <article id="linux" class="active">
+  <div>
 	<header>
 	<h2>Linux</h2>
 	</header>
 	{% markdown_relative _download/linux.md %}
+  </div>
 </article>
 
 <article id="macos" class="active">
+  <div>
 	<header>
 	<h2>macOS</h2>
 	</header>
 	{% markdown_relative _download/macos.md %}
+  </div>
 </article>
 
 <article id="windows" class="active">
+  <div>
 	<header>
 	<h2>Windows</h2>
 	</header>
 	{% markdown_relative _download/windows.md %}
+  </div>
 </article>
 
 </div>
@@ -65,36 +73,42 @@ permalink: /download/
   </p>
 </div>
 <script>
-function animateOnClick(jqThis, slide) {
-   $('.horiz-menu li').removeClass('active');
-   jqThis.parent().addClass('active');
-   if (slide) {
-     $('.horiz-menu article').slideUp();
-     $(jqThis.attr('href')).slideDown();
-   } else {
-     $('.horiz-menu article').removeClass('active');
-     $(jqThis.attr('href')).addClass('active');
-   }
+function animateOnClick(element) {
+  document.querySelectorAll('.horiz-menu > ul li.active').forEach(li => li.classList.remove('active'));
+  element.parentElement.classList.add('active');
+
+  current = document.querySelectorAll('.horiz-menu article.active');
+  target = document.querySelector(element.getAttribute('href'));
+
+  current.forEach(article => { article.classList.remove('active'); });
+  target.classList.add('active')
 }
 
-$('.horiz-menu > ul').show();
-$('.horiz-menu > article > header').hide();
-$('.horiz-menu > ul a').click(function() {
-   jqThis = $(this);
-   if (!jqThis.parent().hasClass('active')) {
-     window.location.hash = jqThis.attr('href');
-     animateOnClick(jqThis, true);
-   }
-   return false;
+document.querySelector('.horiz-menu > ul').style.display = 'block';
+document.querySelectorAll('.horiz-menu > article > header').forEach(header => {
+   header.style.display = 'none';
+});
+document.querySelectorAll('.horiz-menu > ul a').forEach(link => {
+   link.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (!this.parentElement.classList.contains('active')) {
+        history.replaceState(null, null, this.getAttribute('href'));
+        animateOnClick(this);
+      }
+   });
 });
 
 (function() {
-  if (window.location.hash) {
-    hash = window.location.hash.replace('#', '');
-    elem = $('.horiz-menu article').filter(function() { return hash == this.id; });
+  var elem;
+  document.querySelectorAll('.horiz-menu article').forEach(article => { article.classList.remove('active') });
+  if (window.location.hash && document.getElementById(window.location.hash.replace('#', '')).tagName == 'ARTICLE') {
+    elem = document.querySelector('a[href="'+window.location.hash+'"]')
   } else {
-    elem = $('.horiz-menu article').first();
+    elem = document.querySelector('.horiz-menu > ul a');
   }
-  animateOnClick($('a[href="#'+elem.attr('id')+'"]', false));
+  animateOnClick(elem);
+  document.querySelectorAll('.horiz-menu article').forEach(article => {
+    article.classList.add('animate')
+  });
 })();
 </script>
