@@ -73,42 +73,55 @@ permalink: /download/
   </p>
 </div>
 <script>
-function animateOnClick(element) {
-  document.querySelectorAll('.horiz-menu > ul li.active').forEach(li => li.classList.remove('active'));
-  element.parentElement.classList.add('active');
+(() => {
+  const horizMenu = document.querySelector('.horiz-menu');
+  const menuList = horizMenu.querySelector('ul');
+  const menuLinks = horizMenu.querySelectorAll('ul a');
+  const articles = horizMenu.querySelectorAll('article');
+  const articleHeaders = horizMenu.querySelectorAll('article > header');
 
-  current = document.querySelectorAll('.horiz-menu article.active');
-  target = document.querySelector(element.getAttribute('href'));
+  const animateOnClick = (element) => {
+    const activeItems = horizMenu.querySelectorAll('ul li.active');
+    activeItems.forEach(li => li.classList.remove('active'));
+    element.parentElement.classList.add('active');
 
-  current.forEach(article => { article.classList.remove('active'); });
-  target.classList.add('active')
-}
+    const currentActive = horizMenu.querySelectorAll('article.active');
+    const target = horizMenu.querySelector(element.getAttribute('href'));
 
-document.querySelector('.horiz-menu > ul').style.display = 'block';
-document.querySelectorAll('.horiz-menu > article > header').forEach(header => {
-   header.style.display = 'none';
-});
-document.querySelectorAll('.horiz-menu > ul a').forEach(link => {
-   link.addEventListener('click', function(e) {
-      e.preventDefault();
-      if (!this.parentElement.classList.contains('active')) {
-        history.replaceState(null, null, this.getAttribute('href'));
-        animateOnClick(this);
-      }
-   });
-});
+    currentActive.forEach(article => article.classList.remove('active'));
+    target.classList.add('active');
+  };
 
-(function() {
-  var elem;
-  document.querySelectorAll('.horiz-menu article').forEach(article => { article.classList.remove('active') });
-  if (window.location.hash && document.getElementById(window.location.hash.replace('#', '')).tagName == 'ARTICLE') {
-    elem = document.querySelector('a[href="'+window.location.hash+'"]')
+  menuList.style.display = 'block';
+  articleHeaders.forEach(header => {
+     header.style.display = 'none';
+  });
+
+  menuLinks.forEach(link => {
+     link.addEventListener('click', (e) => {
+        e.preventDefault();
+        if (!link.parentElement.classList.contains('active')) {
+          history.replaceState(null, null, link.getAttribute('href'));
+          animateOnClick(link);
+        }
+     });
+  });
+
+  let elem;
+  articles.forEach(article => article.classList.remove('active'));
+
+  const hash = window.location.hash;
+  const hashElement = hash ? document.getElementById(hash.replace('#', '')) : null;
+
+  if (hash && hashElement && hashElement.tagName === 'ARTICLE') {
+    elem = horizMenu.querySelector(`a[href="${hash}"]`);
   } else {
-    elem = document.querySelector('.horiz-menu > ul a');
+    elem = menuLinks[0];
   }
+
   animateOnClick(elem);
-  document.querySelectorAll('.horiz-menu article').forEach(article => {
-    article.classList.add('animate')
+  articles.forEach(article => {
+    article.classList.add('animate');
   });
 })();
 </script>

@@ -39,12 +39,12 @@ glightbox: True
 			</section>
 
 <script>
-window.addEventListener("load", function() {
+window.addEventListener("load", () => {
 	GLightbox({touchNavigation: true, loop: true})
 });
 // make links to images inactive, except through the lightbox
-document.querySelectorAll('.glightbox').forEach(function(element) {
-    element.addEventListener("click", function() {
+document.querySelectorAll('.glightbox').forEach((element) => {
+    element.addEventListener("click", () => {
         return false;
     });
 });
@@ -66,12 +66,12 @@ document.querySelectorAll('.glightbox').forEach(function(element) {
 
 
 <script>
-	window.addEventListener("scroll", function() {
-		isScroll = window.scrollY < 120;
-		body = document.body;
-		if (isScroll && body.classList.contains('fixed'))
-			body.classList.remove('fixed')
-		else if (!isScroll && !body.classList.contains('fixed'))
-			body.classList.add('fixed')
-       });
-       </script>
+window.addEventListener("scroll", () => {
+	const isScroll = window.scrollY < 120;
+	const body = document.body;
+	if (isScroll && body.classList.contains('fixed'))
+		body.classList.remove('fixed')
+	else if (!isScroll && !body.classList.contains('fixed'))
+		body.classList.add('fixed')
+);
+</script>
