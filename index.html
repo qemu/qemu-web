@@ -76,12 +76,12 @@ $('.colorbox').on("click.random-namespace", function() {
 
 
 <script>
-	$(window).on("scroll", function() {
+	window.addEventListener("scroll", function() {
 		isScroll = window.scrollY < 120;
-		jqBody = $('body');
-		if (isScroll && jqBody.hasClass('fixed'))
-			jqBody.removeClass('fixed')
-		else if (!isScroll && !jqBody.hasClass('fixed'))
-			jqBody.addClass('fixed')
+		body = document.body;
+		if (isScroll && body.classList.contains('fixed'))
+			body.classList.remove('fixed')
+		else if (!isScroll && !body.classList.contains('fixed'))
+			body.classList.add('fixed')
        });
        </script>
