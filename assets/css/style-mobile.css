@@ -192,6 +192,14 @@
 			top: 0;
 		}
 
+	#titleBar.open + #nav {
+		margin-left: 0;
+	}
+
+	#titleBar.open > div {
+		margin-left: 80%;
+	}
+
 		#nav > ul 
 		{
 			margin: 0em;

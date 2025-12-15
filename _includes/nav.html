@@ -14,22 +14,25 @@
 	</nav>
 
 <script>
-$('body').addClass('js');
-$('#nav').hide().before('<div id="titleBar"><div><button role="button" aria-pressed="false" aria-controls="nav" aria-label="Toggle navigation bar"><span class="fa fa-lg fa-bars"></span></button></div></div>');
-$('button[aria-controls="nav"]').click(function() {
-	jqNav = $('#nav');
-	if ($(this).attr('aria-pressed') == 'true') {
-		$(this).attr('aria-pressed', false);
-		$('#nav, #titleBar>div').animate(
-			{ 'margin-left': '-=80%' },
-			{ 'duration': 400 });
-		jqNav.promise().done(function() { jqNav.hide().css('margin-left', 0); });
+document.body.classList.add('js');
+document.getElementById('nav').insertAdjacentHTML('beforebegin',
+  '<div id="titleBar"><div><button role="button" aria-pressed="false" aria-controls="nav" aria-label="Toggle navigation bar"><span class="fa fa-lg fa-bars"></span></button></div></div>');
+
+// Add transitions after DOM is fully loaded to prevent flash
+document.addEventListener('DOMContentLoaded', () => {
+	const nav = document.getElementById('nav');
+	const titleBarDiv = document.querySelector('#titleBar > div');
+	nav.style.transition = 'margin-left 0.4s';
+	titleBarDiv.style.transition = 'margin-left 0.4s';
+});
+
+document.querySelector('button[aria-controls="nav"]').addEventListener('click', function() {
+	if (this.getAttribute('aria-pressed') === 'true') {
+		this.setAttribute('aria-pressed', 'false');
+		document.getElementById('titleBar').classList.remove('open');
 	} else {
-		$(this).attr('aria-pressed', true);
-		jqNav.css('margin-left', '-80%').show();
-		$('#nav, #titleBar>div').animate(
-			{ 'margin-left': '+=80%' },
-			{ 'duration': 400 });
+		this.setAttribute('aria-pressed', 'true');
+		document.getElementById('titleBar').classList.add('open');
 	}
 });
 </script>
