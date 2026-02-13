@@ -2,11 +2,11 @@
   patch: 0
   date: "Dec 23rd 2025"
 - branch: "10.1"
-  patch: 3
-  date: "Dec 5th 2025"
+  patch: 4
+  date: "Feb 12th 2026"
 - branch: "10.0"
   patch: 8
-  date: "Feb 12th 2025"
+  date: "Feb 12th 2026"
 - branch: "9.2"
   patch: 4
   date: "May 26th 2025"
