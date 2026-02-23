@@ -8,6 +8,11 @@ list at:
 
 * [\<qemu-security@nongnu.org\>](https://lists.nongnu.org/mailman/listinfo/qemu-security)
 
+Note that not all areas of QEMU are considered to provide a security
+boundary. Consult the guidance at the end of this page for further
+information on how QEMU classifies issues as security vulnerabilities
+vs regular bugs.
+
 ## How to report an issue:
 
 * Please include as many details as possible in the issue report.
@@ -22,6 +27,14 @@ list at:
 * Please share the QEMU command line used to invoke a guest VM.
 
 * Please specify whom to acknowledge for reporting this issue.
+
+* If any automated tools (AI/LLM based, traditional static
+  analysis, or fuzzers) were used to discover the issue, the
+  reporter is required to declare this at the start of the
+  security report. Users of such tools are required to perform
+  triage of their output. Findings and reproducer scenarios
+  output by automated tools must be validated prior to submitting
+  an issue to the QEMU security team.
 
 ## How we respond:
 
@@ -99,6 +112,7 @@ You should contact the Security List if:
 * You can contact us in English. We are unable to respond in other languages.
 
 ## When *not* to contact the QEMU Security List
+* You have not yet performed human review of the output of an automated tool.
 * You need assistance in a language other than English.
 * You require technical assistance (for example, "how do I configure QEMU?").
 * You need help upgrading QEMU due to security alerts.
