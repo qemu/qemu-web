@@ -3,7 +3,7 @@ title: Security Process
 permalink: /contribute/security-process/
 ---
 
-## How to disclosure potential issues
+## How to disclose potential issues
 
 **The QEMU project no longer accepts security issue disclosures via email.**
 
