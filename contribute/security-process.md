@@ -7,7 +7,7 @@ permalink: /contribute/security-process/
 
 **The QEMU project no longer accepts security issue disclosures via email.**
 
-New disclosures must follow the [report a bug](report-a-bug.html)
+New disclosures must follow the [report a bug](../report-a-bug)
 process to file a GitLab issue (work item) for each potential issue,
 ***marking it as "*confidential*" prior to submission.***
 
