@@ -13,7 +13,7 @@ QEMU's continuous integration is supported by:
 * [Digital Ocean](https://digitalocean.com/) through the [DigitalOcean Open
   Source Credits](https://www.digitalocean.com/open-source/credits-for-projects)
   program
-* [Equinix](https://www.arm.com/markets/computing-infrastructure/works-on-arm?#Equinix),
+* [Linaro](https://www.linaro.org/)
 * [IBM LinuxONE Community Cloud](https://developer.ibm.com/articles/get-started-with-ibm-linuxone/)
 
 The [Oregon State University Open Source Labs](https://www.osuosl.org)
