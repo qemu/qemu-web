@@ -626,3 +626,71 @@
 	{
 		margin-top: 1.5em;
 	}
+
+/*********************************************************************************/
+/* Horizontal menu                                                               */
+/*********************************************************************************/
+	.tabs {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.tab-label {
+		order: -1;
+		position: relative;
+
+		input {
+			width: 0;
+			height: 0;
+			position: absolute;
+			opacity: 0;
+		}
+	}
+
+	.tab-label:has(input:checked) + .tab-content {
+		display: block;
+	}
+
+	.tab-content {
+		width: 100%;
+		display: none;
+	}
+
+	/* styling */
+	.tab-label {
+		width: 25%;
+		display: table-cell;
+		padding: 0px;
+		cursor: pointer;
+		border: 1px solid #000;
+		white-space: nowrap;
+		transition: 0.2s;
+		color: #F03B11;
+		font-weight: bold;
+	}
+
+	.tab-label:hover {
+		background: #FCECD4;
+		color: #802400;
+	}
+	.tab-label label {
+	    display: block;
+		border-bottom: 5px transparent;
+		padding: 0.5em;
+		margin: 0px;
+		text-align: center;
+	}
+	.tab-label:has(input:checked) label {
+		border-bottom: 5px #F03B11 solid;
+	}
+	.tab-label:has(input:checked) label:hover {
+		border-bottom: 5px #802400 solid;
+	}
+	.tab-label:focus-within {
+		z-index: 1;
+	}
+
+	.tab-content {
+		padding: 1em;
+
+	}
