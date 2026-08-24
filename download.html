@@ -3,51 +3,52 @@ title: Download QEMU
 permalink: /download/
 ---
 
-<div class="horiz-menu">
-<ul style="display: none;">
-<li><a href="#source">Source code</a></li>
-<li><a href="#linux">Linux</a></li>
-<li><a href="#macos">macOS</a></li>
-<li><a href="#windows">Windows</a></li>
-</ul>
-
-<article id="source" class="active">
-  <div>
-	<header>
-	<h2>Source code</h2>
-	</header>
-	{% include_relative _download/source.html %}
+<div class="tabs">
+  <div class="tab-label">
+    <label>
+      <input type="radio" name="tabs" checked>
+      Source
+    </label>
   </div>
-</article>
 
-<article id="linux" class="active">
-  <div>
-	<header>
-	<h2>Linux</h2>
-	</header>
-	{% markdown_relative _download/linux.md %}
+  <div class="tab-content">
+    {% include_relative _download/source.html %}
   </div>
-</article>
 
-<article id="macos" class="active">
-  <div>
-	<header>
-	<h2>macOS</h2>
-	</header>
-	{% markdown_relative _download/macos.md %}
+  <div class="tab-label">
+    <label>
+      <input type="radio" name="tabs">
+      Linux
+    </label>
   </div>
-</article>
 
-<article id="windows" class="active">
-  <div>
-	<header>
-	<h2>Windows</h2>
-	</header>
-	{% markdown_relative _download/windows.md %}
+  <div class="tab-content">
+    {% markdown_relative _download/linux.md %}
   </div>
-</article>
 
+  <div class="tab-label">
+    <label>
+      <input type="radio" name="tabs">
+      macOS
+    </label>
+  </div>
+
+  <div class="tab-content">
+    {% markdown_relative _download/macos.md %}
+  </div>
+
+  <div class="tab-label">
+    <label>
+      <input type="radio" name="tabs">
+      Windows
+    </label>
+  </div>
+
+  <div class="tab-content">
+    {% markdown_relative _download/windows.md %}
+  </div>
 </div>
+
 
 <h2>Version numbering</h2>
 <div>
@@ -72,56 +73,3 @@ permalink: /download/
     releases prior to the change.
   </p>
 </div>
-<script>
-(() => {
-  const horizMenu = document.querySelector('.horiz-menu');
-  const menuList = horizMenu.querySelector('ul');
-  const menuLinks = horizMenu.querySelectorAll('ul a');
-  const articles = horizMenu.querySelectorAll('article');
-  const articleHeaders = horizMenu.querySelectorAll('article > header');
-
-  const animateOnClick = (element) => {
-    const activeItems = horizMenu.querySelectorAll('ul li.active');
-    activeItems.forEach(li => li.classList.remove('active'));
-    element.parentElement.classList.add('active');
-
-    const currentActive = horizMenu.querySelectorAll('article.active');
-    const target = horizMenu.querySelector(element.getAttribute('href'));
-
-    currentActive.forEach(article => article.classList.remove('active'));
-    target.classList.add('active');
-  };
-
-  menuList.style.display = 'block';
-  articleHeaders.forEach(header => {
-     header.style.display = 'none';
-  });
-
-  menuLinks.forEach(link => {
-     link.addEventListener('click', (e) => {
-        e.preventDefault();
-        if (!link.parentElement.classList.contains('active')) {
-          history.replaceState(null, null, link.getAttribute('href'));
-          animateOnClick(link);
-        }
-     });
-  });
-
-  let elem;
-  articles.forEach(article => article.classList.remove('active'));
-
-  const hash = window.location.hash;
-  const hashElement = hash ? document.getElementById(hash.replace('#', '')) : null;
-
-  if (hash && hashElement && hashElement.tagName === 'ARTICLE') {
-    elem = horizMenu.querySelector(`a[href="${hash}"]`);
-  } else {
-    elem = menuLinks[0];
-  }
-
-  animateOnClick(elem);
-  articles.forEach(article => {
-    article.classList.add('animate');
-  });
-})();
-</script>
