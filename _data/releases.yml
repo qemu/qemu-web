@@ -9,9 +9,9 @@
   date: "Jun 26th 2026"
 - branch: "10.1"
   patch: 5
-  date: "Mar 17th 2026"
+  date: "Oct 28th 2026"
 - branch: "10.0"
-  patch: 14
+  patch: 15
   date: "Sep 28th 2026"
 - branch: "9.2"
   patch: 4
